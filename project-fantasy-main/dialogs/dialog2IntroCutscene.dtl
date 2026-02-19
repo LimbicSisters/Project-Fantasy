@@ -1,0 +1,16 @@
+[signal arg="fireanim1"]
+join Fireman center [mirrored="true"]
+Fireman: You should have just paid your dues, we own this country now.
+[signal arg="paulanim1"]
+join Paul center
+Paul: WAIT, DON'T!!!!
+[signal arg="rykanim1"]
+join Ryka center
+Ryka: Paul, Stop!
+[signal arg="fireanim2"]
+Fireman: Ah, looks like I missed some.
+[signal arg="fireanim3"]
+join Narrator center
+Narrator: The man readies himself for combat.
+leave --All-- [animation="Slide To Left"]
+[signal arg="changescene2"]

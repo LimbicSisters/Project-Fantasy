@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bou1g0t214jfd"]
+
+[ext_resource type="Script" uid="uid://b0yxqfbksqntr" path="res://scripts/OWPlayer.gd" id="1_74311"]
+[ext_resource type="PackedScene" uid="uid://brvdimr2wkh3" path="res://scenes/Player.tscn" id="2_74311"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x46k7"]
+
+[node name="OWPlayer" type="Node3D"]
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+script = ExtResource("1_74311")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0122105, 0)
+shape = SubResource("CapsuleShape3D_x46k7")
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
+transform = Transform3D(-3.7855173e-08, 0.5, -0.8660254, 2.1855694e-08, 0.8660254, 0.5, 1, 0, -4.371139e-08, -4.8054256, 5.8509226, 0)
+
+[node name="Player" parent="CharacterBody3D" instance=ExtResource("2_74311")]

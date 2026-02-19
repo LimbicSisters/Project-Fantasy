@@ -1,0 +1,7 @@
+[signal arg="lockmovement"]
+join Paul center
+Paul: Are we really going through the cave?
+join Ryka center
+Ryka: Yeah, we need to be careful.
+leave --All-- [animation="Slide To Left"]
+[signal arg="allowmovement"]

@@ -1,0 +1,37 @@
+[signal arg="lockmovement"]
+join Ryka center
+[signal arg="rykanim2"]
+Wait! We really didn't release you!
+join God1 center
+[signal arg="god1anim1"]
+God1: How can I trust you?! You are the only ones here!
+[signal arg="rykanim3"]
+Narrator: Ryka points to the hole in the wall
+Ryka: Look! That's where he ran off to!
+[signal arg="god1anim2"]
+God1: I see...  I apologize for attacking you.
+join Paul center
+Paul: Look, we want to stop a guy who burned down our village, is there any way you can help?
+[signal arg="god1anim3"]
+God1: Hmmm...
+[signal arg="god1anim4"]
+God1: Ok, I will help, on one condition.
+God1: You must save the world from an ancient evil.
+God1: If I am freed, that means someone is trying to release the old one.
+God1: I will give you my power to stop them.
+Ryka: Wait but won't you-
+[signal arg="god1anim5"]
+God1: Stop.  Don't worry about me, I'm already dying, the crystal was a lifeline for us gods, so I won't last long without it.
+[signal arg="rykanim4"]
+Ryka: ...
+[signal arg="rykanim5"]
+Ryka: Ok.
+[signal arg="god1anim6"]
+Narrator: The god reaches out a hand and Both Ryka and Paul feel a power wash over them.
+[signal arg="unlockpowers"]
+You gained Innate Powers! Paul can Heal and Ryka can shoot fireballs!
+[signal arg="lightspawn"]
+Narrator: A bright light overtakes you.
+leave --All-- [animation="Slide To Left"]
+[signal arg="allowmovement"]
+[signal arg="changescene5"]
