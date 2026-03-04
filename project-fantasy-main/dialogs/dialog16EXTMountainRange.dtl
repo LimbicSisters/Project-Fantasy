@@ -1,0 +1,17 @@
+[signal arg="lockmovement"]
+join Paul center
+[wait time="1.0"]
+Paul: We- we killed that god.
+join Ryka center
+Ryka: We can't focus on that.
+Paul: Why are you never upset about anything?!
+Ryka: I just focus on-
+Paul: NO!  WE killed that god, WE couldn't stop the other two from being released-
+Paul: OUR PARENTS DIED!  Why are you not upset?
+Ryka: You think I'm not upset?! I'm devastated!
+Paul: Then why-
+Ryka: No.  My turn.  I AM upset.  I am DEVASTATED that we just did that.
+Ryka: But someone needs to focus on the mission at hand, otherwise we won't get anything done!
+Paul: Oh.
+Ryka: Yeah.  Let's keep going
+[signal arg="allowmovement"]

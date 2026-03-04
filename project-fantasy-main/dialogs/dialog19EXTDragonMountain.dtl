@@ -1,0 +1,13 @@
+[signal arg="lockmovement"]
+join Narrator center
+Narrator: The kids notice a shape flying through the sky
+join Paul center
+Paul: Did you see that?
+join Ryka center
+Ryka: I think it's the dragon.
+[signal arg="dragonswoop"]
+Narrator: The dragon swoops down and grabs the kids, taking them to its nest
+[signal arg="nesttransport"]
+Paul: I think it wants to fight.
+Ryka: Then let's give it what it wants!
+[signal arg="changescene8"]

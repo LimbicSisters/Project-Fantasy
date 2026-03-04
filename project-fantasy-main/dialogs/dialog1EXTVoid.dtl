@@ -1,0 +1,14 @@
+join Narrator center
+Narrator: 300 years ago, an ancient evil revealed itself and threatened the planet.
+[signal arg="changimg1"]
+Narrator: The old gods revealed themselves and trapped themselves in crystals.
+This trapped the evil in a space between dimensions.
+[signal arg="changimg2"]
+Narrator: 30 years ago, the crystals were rediscovered.
+Narrator: The people formed a new religion around these newly found gods.
+[signal arg="changimg3"]
+Narrator: 3 years ago, a great earthquake hit the planet, sending a crystal into the ground-
+Narrator: along with all the continents except the single one with the crystals
+[signal arg="changimg4"]
+Narrator: 3 minutes ago, a man raided a town
+[signal arg="Changescene1"]

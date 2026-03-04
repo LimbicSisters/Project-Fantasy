@@ -1,0 +1,9 @@
+[signal arg="lockmovement"]
+join Paul center
+Paul: Here we are.
+join Ryka center
+Ryka: Yep.
+join Narrator center
+Narrator: The kids kick the door down
+[signal arg="allowmovement"]
+[signal arg="changescene12"]

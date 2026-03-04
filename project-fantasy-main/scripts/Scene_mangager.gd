@@ -1,5 +1,5 @@
 extends Node
-var current_scene = "res://scenes/cutscene.tscn"
+var current_scene = "res://scenes/opening.tscn"
 var current_loc = Vector3() # Current location of character in overworld
 var player = null # Player node
 
@@ -36,10 +36,10 @@ func _physics_process(_delta: float) -> void:
 	if get_tree().current_scene != null:
 		var scene = get_tree().current_scene.name
 		# If player is not null
-		if player != null and scene != "Combat":
+		if player != null and scene != "Combat" and scene != "InventoryMenu":
 			# Current location is set to player position
 			current_loc = player.global_position
-		if scene != "Combat":
+		if scene != "Combat" and scene != "InventoryMenu":
 			match scene:
 				"Opening":
 					current_scene = "res://scenes/opening.tscn"

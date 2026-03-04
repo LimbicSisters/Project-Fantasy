@@ -1,0 +1,13 @@
+[signal arg="lockmovement"]
+join God3 center
+God3: See? You are better for them than us...
+join Narrator center
+[signal arg="goddie"]
+Narrator: The god dies without giving you his powers.
+join Paul center
+join Ryka center
+Paul: oh... Oh god.
+Ryka: did we just-
+Paul: Yeah.  What's that metal around where he used to be?
+Ryka: I don't know, let's just- let's just go.
+[signal arg="allowmovement"]

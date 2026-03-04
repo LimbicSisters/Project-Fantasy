@@ -1,0 +1,10 @@
+[signal arg="lockmovement"]
+join Paul center
+[wait time="1.0"]
+Paul: Where are we?
+join Ryka center
+Ryka: I'm not sure, let's keep going.
+join Narrator center
+Narrator: The kids walk into a nearby town.
+[signal arg="allowmovement"]
+[signal arg="changescene16"]

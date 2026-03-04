@@ -1,8 +1,0 @@
-[signal arg="lockmovement"]
-join Paul center
-Paul: Sooooo... Where are we going?
-join Ryka center
-Ryka: The guy said "We own this country" so maybe the king knows something?
-Paul: That makes sense, let's go already!
-leave --All-- [animation="Slide To Left"]
-[signal arg="allowmovement"]

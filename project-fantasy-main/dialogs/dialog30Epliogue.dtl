@@ -1,0 +1,8 @@
+[signal arg="lockmovement"]
+join Narrator center
+Narrator: The missing continents reappear with another great earthquake!
+join Paul center
+Paul: While the people from those other continents are still dead, we can rebuild.
+join Ryka center
+Ryka: The future looks bright.
+[signal arg="changscene20"]

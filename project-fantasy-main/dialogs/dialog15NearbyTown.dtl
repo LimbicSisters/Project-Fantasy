@@ -1,0 +1,13 @@
+[signal arg="lockmovement"]
+Woman: You- You monsters!
+join Paul center
+Paul: What was that for?
+Woman: I know what you did, we all do!  You killed our god!
+Paul: H- How do you know that?
+Woman: Our power's out!  How else would that be?!
+join Narrator center
+Narrator: Paul looks down defeated
+Woman: We will let you pass, we cannot stop you, but do not stay.
+Narrator: The kids pass through the town
+[signal arg="allowmovement"]
+[signal arg="changescene7"]

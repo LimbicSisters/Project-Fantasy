@@ -24,7 +24,6 @@ Paul="*res://scripts/Paul.gd"
 Ryka="*res://scripts/Ryka.gd"
 Vardump="*res://scripts/vardump.gd"
 ArrowManager="*res://scripts/ArrowManager.gd"
-Inventory="*res://scripts/Inventory.gd"
 
 [dialogic]
 
@@ -34,6 +33,7 @@ directories/dch_directory={
 "God2": "res://Characters/God2.dch",
 "God3": "res://Characters/God3.dch",
 "God4": "res://Characters/God4.dch",
+"King": "res://Characters/King.dch",
 "Narrator": "res://Characters/Narrator.dch",
 "OldOne": "res://Characters/OldOne.dch",
 "Paul": "res://Characters/Paul.dch",
@@ -41,16 +41,36 @@ directories/dch_directory={
 "cloaked_man": "res://Characters/cloaked_man.dch"
 }
 directories/dtl_directory={
-"dialog1Intro": "res://dialogs/dialog1Intro.dtl",
-"dialog2IntroCutscene": "res://dialogs/dialog2IntroCutscene.dtl",
-"dialog3PostCombat": "res://dialogs/dialog3PostCombat.dtl",
-"dialog4OpenWorld": "res://dialogs/dialog4OpenWorld.dtl",
-"dialog55hitground": "res://dialogs/dialog55hitground.dtl",
-"dialog5Falling": "res://dialogs/dialog5Falling.dtl",
-"dialog6Crystal1": "res://dialogs/dialog6Crystal1.dtl",
-"dialog7PostCombat": "res://dialogs/dialog7PostCombat.dtl",
-"dialog8Shrine1": "res://dialogs/dialog8Shrine1.dtl",
-"dialog9mountains": "res://dialogs/dialog9mountains.dtl"
+"dialog10Mountains": "res://dialogs/dialog10Mountains.dtl",
+"dialog11Shrine2": "res://dialogs/dialog11Shrine2.dtl",
+"dialog12Crystal3": "res://dialogs/dialog12Crystal3.dtl",
+"dialog13Crystal3": "res://dialogs/dialog13Crystal3.dtl",
+"dialog14Crystal3": "res://dialogs/dialog14Crystal3.dtl",
+"dialog15NearbyTown": "res://dialogs/dialog15NearbyTown.dtl",
+"dialog16EXTMountainRange": "res://dialogs/dialog16EXTMountainRange.dtl",
+"dialog17EXTCastleYard": "res://dialogs/dialog17EXTCastleYard.dtl",
+"dialog18INTCastle": "res://dialogs/dialog18INTCastle.dtl",
+"dialog19EXTDragonMountain": "res://dialogs/dialog19EXTDragonMountain.dtl",
+"dialog1EXTVoid": "res://dialogs/dialog1EXTVoid.dtl",
+"dialog20EXTDragonMountain": "res://dialogs/dialog20EXTDragonMountain.dtl",
+"dialog21INTCastle": "res://dialogs/dialog21INTCastle.dtl",
+"dialog22INTThroneRoom": "res://dialogs/dialog22INTThroneRoom.dtl",
+"dialog23EXTNewCountry": "res://dialogs/dialog23EXTNewCountry.dtl",
+"dialog24INTHideout": "res://dialogs/dialog24INTHideout.dtl",
+"dialog25EXTBetweenDimensions": "res://dialogs/dialog25EXTBetweenDimensions.dtl",
+"dialog26EXTDimensionTown": "res://dialogs/dialog26EXTDimensionTown.dtl",
+"dialog27INTChapel": "res://dialogs/dialog27INTChapel.dtl",
+"dialog28Lobby": "res://dialogs/dialog28Lobby.dtl",
+"dialog29Tower": "res://dialogs/dialog29Tower.dtl",
+"dialog2EXTSmallTown": "res://dialogs/dialog2EXTSmallTown.dtl",
+"dialog30Epliogue": "res://dialogs/dialog30Epliogue.dtl",
+"dialog3EXTSmallTown": "res://dialogs/dialog3EXTSmallTown.dtl",
+"dialog4INTCAVES1": "res://dialogs/dialog4INTCAVES1.dtl",
+"dialog5INTCAVES1": "res://dialogs/dialog5INTCAVES1.dtl",
+"dialog6INTcrystal1": "res://dialogs/dialog6INTcrystal1.dtl",
+"dialog7Crystal1": "res://dialogs/dialog7Crystal1.dtl",
+"dialog8INTShrine1": "res://dialogs/dialog8INTShrine1.dtl",
+"dialog9EXTPlains": "res://dialogs/dialog9EXTPlains.dtl"
 }
 layout/style_directory={
 "": "res://Styles/Style.tres",

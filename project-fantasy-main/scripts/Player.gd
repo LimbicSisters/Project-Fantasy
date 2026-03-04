@@ -1,12 +1,5 @@
 extends Node
 class_name Player
-@export_enum("Wooden", "Iron", "Steel", "Dragon", "Godly", "None") var Helmet = "None"
-@export_enum("Wooden", "Iron", "Steel", "Dragon", "Godly", "None") var Chestplate = "None"
-@export_enum("Wooden", "Iron", "Steel", "Dragon", "Godly", "None") var Leggings = "None"
-@export_enum("Wooden", "Iron", "Steel", "Dragon", "Godly", "None") var Gloves = "None"
-@export_enum("Wooden", "Iron", "Steel", "Dragon", "Godly", "None") var Boots = "None"
-@export_enum("Sword", "Spear", "Axe", "Dagger", "None") var WeaponRType = "None"
-@export_enum("Sword", "Dagger", "Shield", "None", "Taken") var WeaponLType = "None"
 @export var maxhealth : int = 30
 var health : int = maxhealth
 var strength : float = 1
@@ -17,24 +10,34 @@ var dead = false
 func level_check(xp):
 	if xp >= 800:
 		level = 10
+		up_stats()
 	elif xp >= 600:
 		level = 9
+		up_stats()
 	elif xp >= 425:
 		level = 8
+		up_stats()
 	elif xp >= 325:
 		level = 7
+		up_stats()
 	elif xp >= 250:
 		level = 6
+		up_stats()
 	elif xp >= 200:
 		level = 5
+		up_stats()
 	elif xp >= 150:
 		level = 4
+		up_stats()
 	elif xp >= 100:
 		level = 3
+		up_stats()
 	elif xp >= 50:
 		level = 2
+		up_stats()
 	else:
 		level = 1
+		up_stats()
 
 func attack(target):
 	var damage = randi_range(1, 10) * strength
@@ -50,4 +53,34 @@ func run():
 	return false
 
 func up_stats():
-	pass
+	match level:
+		1:
+			maxhealth = 30
+			strength = 1
+		2:
+			maxhealth = 60
+			strength = 2
+		3:
+			maxhealth = 90
+			strength = 3
+		4:
+			maxhealth = 150
+			strength = 5
+		5:
+			maxhealth = 250
+			strength = 7
+		6:
+			maxhealth = 300
+			strength = 10
+		7:
+			maxhealth = 450
+			strength = 13
+		8:
+			maxhealth = 600
+			strength = 15
+		9:
+			maxhealth = 800
+			strength = 18
+		10:
+			maxhealth = 1000
+			strength = 20

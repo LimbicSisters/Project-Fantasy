@@ -1,0 +1,26 @@
+[signal arg="lockmovement"]
+join Paul center
+Paul: Woah, what's this?
+join Ryka center
+Ryka: This looks like the missing crystal!
+Paul: ???
+Ryka: Really?.  The great earthquake, the continents going missing, OUR RELIGION?!
+Paul: Ohhhhhhh. Yeah.
+Ryka: God...
+join Narrator center
+Narrator: A rustling is heard, like footsteps
+CRASH
+[signal arg="breakpillar"]
+Narrator: A pillar shatters and footsteps are heard again
+join cloaked_man center
+[signal arg="cloakedrun"]
+cloaked_man: Thanks, suckers!
+Paul: Uh oh.
+[signal arg="crystalshatter"]
+Narrator: The crystal shatters! A giant seems to come from it.
+join God1 center
+God1: WHO DARES AWAKEN ME?!
+Paul: They ran off.
+God1: YOU THINK ME A FOOL?! RAISE THINE SWORD.
+[signal arg="allowmovement"]
+[signal arg="changescene4"]

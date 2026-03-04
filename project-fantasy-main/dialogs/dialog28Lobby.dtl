@@ -1,0 +1,7 @@
+[signal arg="lockmovement"]
+[wait time="1.0"]
+Paul: What is this?
+Ryka: Seems like a lobby, maybe we can rest up and get supplies!
+Paul: Or we could just go for it.
+Ryka: Yeah, we could
+[signal arg="allowmovement"]

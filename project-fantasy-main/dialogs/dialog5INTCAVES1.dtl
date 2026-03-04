@@ -1,0 +1,8 @@
+[signal arg="lockmovement"]
+THUD*
+join Paul center
+Paul: Ouch, why'd it do that?
+join Ryka center
+Ryka: Hold on, there's something down that hall.
+leave --All--
+[signal arg="allowmovement"]

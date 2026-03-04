@@ -9,12 +9,12 @@ func _ready() -> void:
 	if Vardump.crystal1dialogran:
 		crystal.visible = false
 		god.visible = true
-		Dialogic.start("dialog7PostCombat")
+		Dialogic.start("dialog7Crystal1")
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Player") and not Vardump.crystal1dialogran:
 		Vardump.crystal1dialogran = true
-		Dialogic.start("dialog6Crystal1")
+		Dialogic.start("dialog6INTcrystal1")
 
 func _on_dialogic_signal(argument : String):
 	if argument == "breakpillar":
@@ -28,29 +28,10 @@ func _on_dialogic_signal(argument : String):
 	if argument == "changescene4":
 		Vardump.recent_dialog = 6
 		SceneMangager.change_scene("res://scenes/combat.tscn")
-	elif argument == "rykanim2":
-		pass
-	elif argument == "god1anim1":
-		pass
-	elif argument == "rykanim3":
-		pass
-	elif argument == "god1anim2":
-		pass
-	elif argument == "god1anim3":
-		pass
-	elif argument == "god1anim4":
-		pass
-	elif argument == "god1anim5":
-		pass
-	elif argument == "rykanim4":
-		pass
-	elif argument == "rykanim5":
-		pass
-	elif argument == "god1anim6":
-		pass
-	elif argument == "unlockpowers":
-		pass
-	elif argument == "lightspawn":
-		pass
-	elif argument == "changescene5":
-		pass
+	if argument == "lightspawn":
+		god.queue_free()
+		Vardump.fireballunlock = true
+		Vardump.healingunlock = true
+	if argument == "changescenesomn":
+		Vardump.recent_dialog = 7
+		SceneMangager.change_scene("res://scenes/shrine_1.tscn")

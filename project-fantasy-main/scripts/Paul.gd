@@ -21,12 +21,6 @@ func lightning(target):
 		return true
 	return false
 
-func holy_light_heal(target):
-	var potency = randi_range(10, 20) * strength
-	if randi_range(1, 3) == 1:
-		potency *= 2
-	target.health += potency
-
 func holy_light_dam(target):
 	var damage = randi_range(10, 17) * strength
 	if randi_range(1, 5) == 1:
@@ -45,7 +39,4 @@ func check_power(attacktarget):
 		"Lightning":
 			lightning(attacktarget)
 		"HolyLight":
-			if attacktarget == self or Ryka:
-				holy_light_heal(attacktarget)
-			else:
-				holy_light_dam(attacktarget)
+			holy_light_dam(attacktarget)

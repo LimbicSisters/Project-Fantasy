@@ -1,0 +1,11 @@
+[signal arg="lockmovement"]
+join Paul center
+[wait time="1.0"]
+Paul: We did it.
+join Ryka center
+join Narrator center
+Ryka: Yeah, it was really-
+Narrator: Paul slaps Ryka's back
+Paul: It was really... hard to kill, fun hunt.
+[signal arg="allowmovement"]
+[signal arg="changescene10"]

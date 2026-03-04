@@ -1,136 +1,148 @@
 extends Node
 
-func move_arrow_down(Holyactive, target1, target2, target3, target4, target5, arrow1, arrow2, arrow3, arrow4, arrow5, target, enemylist):
+func move_arrow_down(enemytargets, arrow1, arrow2, arrow3, target):
 	var newtarget
-	match target:
+	match enemytargets.size():
 		1:
-			arrow1.visible = false
-			if not target2.dead and target2 in enemylist:
-				newtarget = move_arrow(arrow2, 2)
-			elif not target3.dead and target3 in enemylist:
-				newtarget = move_arrow(arrow3, 3)
-			elif Holyactive and not target4.dead:
-				newtarget = move_arrow(arrow4, 4)
-			elif Holyactive and not target5.dead:
-				newtarget = move_arrow(arrow5, 5)
-			elif not target1.dead:
-				newtarget = move_arrow(arrow1, 1)
-		2:
 			arrow2.visible = false
-			if not target3.dead and target3 in enemylist:
-				newtarget = move_arrow(arrow3, 3)
-			elif Holyactive and not target4.dead:
-				newtarget = move_arrow(arrow4, 4)
-			elif Holyactive and not target5.dead:
-				newtarget = move_arrow(arrow5, 5)
-			elif not target1.dead:
-				newtarget = move_arrow(arrow1, 1)
-			elif not target2.dead and target2 in enemylist:
-				newtarget = move_arrow(arrow2, 2)
-		3:
 			arrow3.visible = false
-			if Holyactive and not target4.dead:
-				newtarget = move_arrow(arrow4, 4)
-			elif Holyactive and not target5.dead:
-				newtarget = move_arrow(arrow5, 5)
-			elif not target1.dead:
-				newtarget = move_arrow(arrow1, 1)
-			elif not target2.dead and target2 in enemylist:
-				newtarget = move_arrow(arrow2, 2)
-			elif not target3.dead and target3 in enemylist:
-				newtarget = move_arrow(arrow3, 3)
-		4:
-			arrow4.visible = false
-			if Holyactive and not target5.dead:
-				newtarget = move_arrow(arrow5, 5)
-			elif not target1.dead:
-				newtarget = move_arrow(arrow1, 1)
-			elif not target2.dead and target2 in enemylist:
-				newtarget = move_arrow(arrow2, 2)
-			elif not target3.dead and target3 in enemylist:
-				newtarget = move_arrow(arrow3, 3)
-			elif Holyactive and not target4.dead:
-				newtarget = move_arrow(arrow4, 4)
-		5:
-			arrow5.visible = false
-			if not target1.dead:
-				newtarget = move_arrow(arrow1, 1)
-			elif not target2.dead and target2 in enemylist:
-				newtarget = move_arrow(arrow2, 2)
-			elif not target3.dead and target3 in enemylist:
-				newtarget = move_arrow(arrow3, 3)
-			elif Holyactive and not target4.dead:
-				newtarget = move_arrow(arrow4, 4)
-			elif Holyactive and not target5.dead:
-				newtarget = move_arrow(arrow5, 5)
+			arrow1.visible = true
+			newtarget = 1
+		2:
+			match target:
+				1:
+					arrow1.visible = false
+					if not enemytargets[1].dead:
+						arrow2.visible = true
+						newtarget = 2
+					else:
+						arrow1.visible = true
+				2:
+					arrow2.visible = false
+					if not enemytargets[0].dead:
+						arrow1.visible = true
+						newtarget = 1
+					else:
+						arrow2.visible = true
+				3:
+					arrow3.visible = false
+					if not enemytargets[0].dead:
+						print("TEST")
+						arrow1.visible = true
+						newtarget = 1
+					elif not enemytargets[1].dead:
+						arrow2.visible = true
+						newtarget = 2
+		3:
+			match target:
+				1:
+					arrow1.visible = false
+					if not enemytargets[1].dead:
+						arrow2.visible = true
+						newtarget = 2
+					elif not enemytargets[2].dead:
+						arrow3.visible = true
+						newtarget = 3
+					else:
+						arrow1.visible = true
+				2:
+					arrow2.visible = false
+					if not enemytargets[2].dead:
+						arrow3.visible = true
+						newtarget = 3
+					elif not enemytargets[0].dead:
+						arrow1.visible = true
+						newtarget = 1
+					else:
+						arrow2.visible = true
+				3:
+					arrow3.visible = false
+					if not enemytargets[0].dead:
+						print("TEST")
+						arrow1.visible = true
+						newtarget = 1
+					elif not enemytargets[1].dead:
+						arrow2.visible = true
+						newtarget = 2
+					else:
+						arrow3.visible = true
 	return newtarget
 
-func move_arrow_up(Holyactive, target1, target2, target3, target4, target5, arrow1, arrow2, arrow3, arrow4, arrow5, target, enemylist):
+func move_arrow_up(enemytargets, arrow1, arrow2, arrow3, target):
 	var newtarget
-	match target:
+	match enemytargets.size():
 		1:
-			arrow1.visible = false
-			if Holyactive and not target5.dead:
-				newtarget = move_arrow(arrow5, 5)
-			elif Holyactive and not target4.dead:
-				newtarget = move_arrow(arrow4, 4)
-			elif not target3.dead and target3 in enemylist:
-				newtarget = move_arrow(arrow3, 3)
-			elif not target2.dead and target2 in enemylist:
-				newtarget = move_arrow(arrow2, 2)
-			elif not target1.dead:
-				newtarget = move_arrow(arrow1, 1)
-		2:
 			arrow2.visible = false
-			if not target1.dead:
-				newtarget = move_arrow(arrow1, 1)
-			elif Holyactive and not target5.dead:
-				newtarget = move_arrow(arrow5, 5)
-			elif Holyactive and not target4.dead:
-				newtarget = move_arrow(arrow4, 4)
-			elif not target3.dead and target3 in enemylist:
-				newtarget = move_arrow(arrow3, 3)
-			elif not target2.dead and target2 in enemylist:
-				newtarget = move_arrow(arrow2, 2)
-				
-		3:
 			arrow3.visible = false
-			if not target2.dead and target2 in enemylist:
-				newtarget = move_arrow(arrow2, 2)
-			elif not target1.dead:
-				newtarget = move_arrow(arrow1, 1)
-			elif Holyactive and not target5.dead:
-				newtarget = move_arrow(arrow5, 5)
-			elif Holyactive and not target4.dead:
-				newtarget = move_arrow(arrow4, 4)
-			elif not target3.dead and target3 in enemylist:
-				newtarget = move_arrow(arrow3, 3)
-		4:
-			arrow4.visible = false
-			if not target3.dead and target3 in enemylist:
-				newtarget = move_arrow(arrow3, 3)
-			elif not target2.dead and target2 in enemylist:
-				newtarget = move_arrow(arrow2, 2)
-			elif not target1.dead:
-				newtarget = move_arrow(arrow1, 1)
-			elif Holyactive and not target5.dead:
-				newtarget = move_arrow(arrow5, 5)
-			elif Holyactive and not target4.dead:
-				newtarget = move_arrow(arrow4, 4)
-		5:
-			arrow5.visible = false
-			if Holyactive and not target4.dead:
-				newtarget = move_arrow(arrow4, 4)
-			elif not target3.dead and target3 in enemylist:
-				newtarget = move_arrow(arrow3, 3)
-			elif not target2.dead and target2 in enemylist:
-				newtarget = move_arrow(arrow2, 2)
-			elif not target1.dead:
-				newtarget = move_arrow(arrow1, 1)
-			elif Holyactive and not target5.dead:
-				newtarget = move_arrow(arrow5, 5)
+			arrow1.visible = true
+			newtarget = 1
+		2:
+			match target:
+				1:
+					arrow1.visible = false
+					if not enemytargets[1].dead:
+						arrow2.visible = true
+						newtarget = 2
+					else:
+						arrow1.visible = true
+				2:
+					arrow2.visible = false
+					if not enemytargets[0].dead:
+						arrow1.visible = true
+						newtarget = 1
+					else:
+						arrow2.visible = true
+				3:
+					arrow3.visible = false
+					if not enemytargets[0].dead:
+						arrow1.visible = true
+						newtarget = 1
+					elif not enemytargets[1].dead:
+						arrow2.visible = true
+						newtarget = 2
+		3:
+			match target:
+				3:
+					arrow3.visible = false
+					if not enemytargets[1].dead:
+						arrow2.visible = true
+						newtarget = 2
+					elif not enemytargets[0].dead:
+						arrow1.visible = true
+						newtarget = true
+					else:
+						arrow3.visible = true
+				2:
+					arrow2.visible = false
+					if not enemytargets[0].dead:
+						arrow1.visible = true
+						newtarget = 1
+					elif not enemytargets[2].dead:
+						arrow3.visible = true
+						newtarget = 3
+					else:
+						arrow2.visible = true
+				1:
+					arrow1.visible = false
+					if not enemytargets[2].dead:
+						arrow3.visible = true
+						newtarget = 3
+					elif not enemytargets[1].dead:
+						arrow2.visible = true
+						newtarget = 2
+					else:
+						arrow1.visible = true
 	return newtarget
 
-func move_arrow(newarrow, newtarget):
-	newarrow.visible = true
+func healarrow(arrow1, arrow2, target):
+	var newtarget
+	if target == 4:
+		arrow1.visible = false
+		newtarget = 5
+		arrow2.visible = true
+	else:
+		arrow2.visible = false
+		newtarget = 4
+		arrow1.visible = true
 	return newtarget
+	

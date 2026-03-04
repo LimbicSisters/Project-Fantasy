@@ -1,8 +1,0 @@
-[signal arg="lockmovement"]
-THUD!
-join Paul center
-Paul: Ouch!  Why'd it do that?
-join Ryka center
-Ryka: Wait, there's something down that hall, let's go check it out.
-leave --All--
-[signal arg="allowmovement"]

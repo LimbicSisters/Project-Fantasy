@@ -11,20 +11,18 @@ class_name Combat
 @onready var arrow_3: Sprite2D = $Arrows/PlaceholderArrow3
 @onready var arrow_4: Sprite2D = $Arrows/PlaceholderArrow4
 @onready var arrow_5: Sprite2D = $Arrows/PlaceholderArrow5
-@onready var enemy_1: Enemy = $Enemies/Enemy1
-@onready var enemy_2: Enemy = $Enemies/Enemy2
-@onready var enemy_3: Enemy = $Enemies/Enemy3
+@onready var enemy_1: Node2D = $Enemies/Enemy1
+@onready var enemy_2: Node2D = $Enemies/Enemy2
+@onready var enemy_3: Node2D = $Enemies/Enemy3
 @onready var ryka: Node3D = $Ryka
 @onready var paul: Node3D = $Paul
 @onready var update_label: Label = $UI/UpdateLabel
 @onready var pxp_label: Label = $UI/PXPLabel
 @onready var rxp_label: Label = $UI/RXPLabel
 @onready var bossarrow: Sprite2D = $Arrows/bossarrow
-var HolyLightActive = false
 var enemy_nodes = []
 var ava_types = []
 var enemycount
-var enemies = []
 var target
 var players = [Paul, Ryka]
 var active = false
@@ -35,18 +33,22 @@ var victory = false
 var ended = false
 var setup = false
 var boss = false
+var healing = true
 
 func _ready() -> void:
 	ryka_speed.max_value = Ryka.maxspeed
 	paul_speed.max_value = Paul.maxspeed
-	choose_enemy_count()
 	choose_ava_types()
+	choose_enemy_count()
 	choose_enemy_type()
-	enemy_1.visible(enemies[0])
-	if enemies.size() >= 2:
-		enemy_2.visible(enemies[1])
-	if enemies.size() >= 3:
-		enemy_3.visible(enemies[2])
+	visible(enemy_1, enemy_nodes[0])
+	enemy_nodes[0].dead = false
+	if enemy_nodes.size() >= 2:
+		visible(enemy_2, enemy_nodes[1])
+		enemy_nodes[1].dead = false
+	if enemy_nodes.size() >= 3:
+		visible(enemy_3, enemy_nodes[2])
+		enemy_nodes[2].dead = false
 	setup = true
 
 func _process(delta: float) -> void:
@@ -73,7 +75,7 @@ func _process(delta: float) -> void:
 						update_label.visible = true
 						await get_tree().create_timer(1.5).timeout
 						update_label.visible = false
-			if enemy_nodes.size() <= 0:
+			if enemy_nodes.size() == defeated.size():
 				if not ended:
 					end_combat()
 			for enemy in enemy_nodes:
@@ -99,43 +101,29 @@ func _input(event: InputEvent) -> void:
 		if victory:
 			SceneMangager.change_scene_arg(SceneMangager.current_loc.x,SceneMangager.current_loc.y, SceneMangager.current_loc.z, SceneMangager.current_scene)
 	if event.is_action_pressed("move_up"):
-		if targeting:
-			target = ArrowManager.move_arrow_up(HolyLightActive, enemy_1, enemy_2, enemy_3, Ryka, Paul, arrow, arrow_2, arrow_3, arrow_4, arrow_5, target, enemy_nodes)
+		if targeting and not boss:
+			target = ArrowManager.move_arrow_up(enemy_nodes, arrow, arrow_2, arrow_3, target)
 	if event.is_action_pressed("move_down"):
-		if targeting:
-			target = ArrowManager.move_arrow_down(HolyLightActive, enemy_1, enemy_2, enemy_3, Ryka, Paul, arrow, arrow_2, arrow_3, arrow_4, arrow_5, target, enemy_nodes) 
+		if targeting and not boss:
+			target = ArrowManager.move_arrow_down(enemy_nodes, arrow, arrow_2, arrow_3, target) 
 
 func choose_enemy_count():
-	if SceneMangager.current_scene == "res://scenes/cutscene.tscn" or SceneMangager.current_scene == "res://scenes/cave_1.tscn":
+	if SceneMangager.current_scene == "res://scenes/cutscene.tscn" or SceneMangager.current_scene == "res://scenes/cave_1.tscn" and boss or SceneMangager.current_scene == "res://scenes/shrine_3.tscn" and boss:
 		match Vardump.recent_dialog:
 			2:
 				enemycount = 2
-				enemy_nodes.append(enemy_1)
-				enemy_1.dead = false
 			6:
 				enemycount = 2
-				enemy_nodes.append(enemy_1)
-				enemy_1.dead = false
+			13:
+				enemycount = 2
 	else:
 		var num = randi_range(1, 6)
 		if num == 6:
 			enemycount = 4
-			enemy_nodes.append(enemy_3)
-			enemy_nodes.append(enemy_2)
-			enemy_nodes.append(enemy_1)
-			enemy_1.dead = false
-			enemy_2.dead = false
-			enemy_3.dead = false
 		elif num >= 4:
 			enemycount = 3
-			enemy_nodes.append(enemy_2)
-			enemy_nodes.append(enemy_1)
-			enemy_1.dead = false
-			enemy_2.dead = false
 		else:
 			enemycount = 2
-			enemy_nodes.append(enemy_1)
-			enemy_1.dead = false
 
 func choose_ava_types():
 	match SceneMangager.current_scene:
@@ -150,11 +138,35 @@ func choose_ava_types():
 				ava_types.append("God")
 			else:
 				ava_types.append("Goblin")
+		"res://scenes/shrine_3.tscn":
+			match Vardump.recent_dialog:
+				12:
+					ava_types.append("CloakedMan")
+				13:
+					ava_types.append("God")
 
 func choose_enemy_type():
 	for enemy in enemycount:
-		if enemy != 0:
-			enemies.append(ava_types.pick_random())
+		var type = ava_types.pick_random()
+		match enemy: 
+			1:
+				match type:
+					"Goblin":
+						enemy_nodes.append(enemy_1.get_child(0))
+					"Fireman":
+						enemy_nodes.append(enemy_1.get_child(2))
+					"God":
+						enemy_nodes.append(enemy_1.get_child(1))
+					"CloakedMan":
+						enemy_nodes.append(enemy_1.get_child(3))
+			2:
+				match type:
+					"Goblin":
+						enemy_nodes.append(enemy_1.get_child(0))
+			3:
+				match type:
+					"Goblin":
+						enemy_nodes.append(enemy_1.get_child(0))
 
 func _on_attack_pressed() -> void:
 	if active:
@@ -164,8 +176,15 @@ func _on_attack_pressed() -> void:
 			targeting = true
 		elif not targeting and not boss:
 			targeting = true
-			target = 5
-			target = ArrowManager.move_arrow_down(HolyLightActive, enemy_1, enemy_2, enemy_3, Ryka, Paul, arrow, arrow_2, arrow_3, arrow_4, arrow_5, target, enemy_nodes) 
+			if not enemy_nodes[0].dead:
+				arrow.visible = true
+				target = 1
+			elif not enemy_nodes[1].dead:
+				arrow_2.visible = true
+				target = 2
+			else:
+				arrow_3.visible = true
+				target = 3
 		else:
 			active = false
 			targeting = false
@@ -174,21 +193,21 @@ func _on_attack_pressed() -> void:
 			match activeplayer:
 				Paul:
 					Paul.attack(attacktarget)
-					if attacktarget.dead:
+					if attacktarget.health <= 0:
 						die(attacktarget)
 				Ryka:
 					Ryka.attack(attacktarget)
-					if attacktarget.dead:
+					if attacktarget.health <= 0:
 						die(attacktarget)
 
 func match_target(targetnum):
 	match targetnum:
 		1:
-			return enemy_1
+			return enemy_nodes[0]
 		2:
-			return enemy_2
+			return enemy_nodes[1]
 		3:
-			return enemy_3
+			return enemy_nodes[2]
 		4:
 			return Ryka
 		5:
@@ -199,6 +218,7 @@ func _on_power_pressed() -> void:
 		if targeting:
 			active = false
 			targeting = false
+			healing = false
 			var attacktarget = match_target(target)
 			arrow_n_visible()
 			match activeplayer:
@@ -211,17 +231,20 @@ func _on_power_pressed() -> void:
 					if attacktarget.dead:
 						die(attacktarget)
 		else:
-			if activeplayer.equippedpower != "None":
+			if activeplayer.equippedpower == "Heal":
+				targeting = true
+				healing = true
+				target = 4
+				arrow_4.visible = true
+			elif activeplayer.equippedpower != "None":
 				targeting = true
 				target = 5
-				target = ArrowManager.move_arrow_down(HolyLightActive, enemy_1, enemy_2, enemy_3, Ryka, Paul, arrow, arrow_2, arrow_3, arrow_4, arrow_5, target, enemy_nodes) 
+				target = ArrowManager.move_arrow_down(enemy_nodes, arrow, arrow_2, arrow_3, target) 
 			else:
 				update_label.text = "You don't have a Power equipped!"
 				update_label.visible = true
 				await get_tree().create_timer(3).timeout
 				update_label.visible = false
-			if activeplayer == Paul and Paul.equippedpower == "HolyLight":
-				HolyLightActive = true
 
 func _on_run_pressed() -> void:
 	if active:
@@ -243,19 +266,25 @@ func arrow_n_visible():
 
 func update_enemy_label():
 	var currenttext = "Enemies:"
-	for enemy in enemies:
-		currenttext += ("\n" + enemy)
+	for enemy in enemy_nodes:
+		currenttext += ("\n" + enemy.name)
 	enemieslabel.text = currenttext
 
 func end_combat():
+	Paul.health = Paul.maxhealth
+	Ryka.health = Ryka.maxhealth
+	Paul.dead = false
+	Ryka.dead = false
 	if players[0].dead and players[1].dead:
-		Paul.health = Paul.maxhealth
-		Ryka.health = Ryka.maxhealth
 		ended = true
 		if Vardump.recent_dialog == 2:
 			SceneMangager.change_scene("res://scenes/cutscene.tscn")
 		elif Vardump.recent_dialog == 6:
 			SceneMangager.change_scene_arg(98, -29, 0.0, "res://scenes/cave_1.tscn")
+		elif Vardump.recent_dialog == 12:
+			SceneMangager.change_scene("res://scenes/shrine_3.tscn")
+		elif Vardump.recent_dialog == 13:
+			SceneMangager.change_scene("res://scenes/shrine_3.tscn")
 		else:
 			SceneMangager.change_scene("res://scenes/game_over.tscn")
 	else:
@@ -275,8 +304,8 @@ Paul:\n"""
 						rcurrent_text += (str(xp) + "\n")
 		Paul.level_check(Paul.XP)
 		Ryka.level_check(Ryka.XP)
-		pcurrent_text += "\nLevel:\n" + str(Paul.level)
-		rcurrent_text += "\nLevel:\n" + str(Ryka.level)
+		pcurrent_text += "\nXP: " + str(Paul.XP) + "\nLevel:\n" + str(Paul.level)
+		rcurrent_text += "\nXP: " + str(Ryka.XP) + "\nLevel:\n" + str(Ryka.level)
 		pxp_label.text = pcurrent_text
 		pxp_label.visible = true
 		rxp_label.text = rcurrent_text
@@ -286,14 +315,18 @@ Paul:\n"""
 		update_label.visible = true
 
 func die(person):
-	if person.dead:
-		if person in enemy_nodes:
-			enemy_nodes.erase(person)
-			defeated.append(person)
-			person.visible = false
-		elif person in players:
-			match person:
-				Paul:
-					paul.visible = false
-				Ryka:
-					ryka.visible = false
+	person.dead = true
+	if person in enemy_nodes:
+		defeated.append(person)
+		person.visible = false
+	elif person in players:
+		match person:
+			Paul:
+				paul.visible = false
+			Ryka:
+				ryka.visible = false
+
+func visible(enemynode, enemytype):
+	for child in enemynode.get_children():
+		if enemytype.name == child.name:
+			child.visible = true

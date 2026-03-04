@@ -1,15 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://konhpk5qma3b"]
+[gd_scene load_steps=9 format=3 uid="uid://konhpk5qma3b"]
 
 [ext_resource type="Script" uid="uid://dvnhy30dbgxij" path="res://scripts/Combat.gd" id="1_4l26h"]
 [ext_resource type="Texture2D" uid="uid://dx1b3xan22tjy" path="res://Images/placeholder arrow.png" id="1_764e3"]
 [ext_resource type="Script" uid="uid://0tfobjqljkaq" path="res://scripts/Enemy.gd" id="2_aic3r"]
 [ext_resource type="Texture2D" uid="uid://b8syqi70tfteg" path="res://Images/goblin.png" id="3_4l26h"]
 [ext_resource type="PackedScene" uid="uid://brvdimr2wkh3" path="res://scenes/Player.tscn" id="5_p71o4"]
-[ext_resource type="Script" uid="uid://dwo1ywiog2knh" path="res://scripts/goblin.gd" id="5_vcae8"]
 [ext_resource type="Texture2D" uid="uid://d1g866l604yae" path="res://Images/fireman.png" id="6_4gnb8"]
-[ext_resource type="Script" uid="uid://dnkmm254irr3f" path="res://scripts/fireman.gd" id="7_sa5k0"]
+[ext_resource type="Texture2D" uid="uid://dia4i3c1dv112" path="res://Images/cloakedman.png" id="7_4gnb8"]
 [ext_resource type="Texture2D" uid="uid://dkqcjmvyxjmgh" path="res://Images/god.png" id="8_sa5k0"]
-[ext_resource type="Script" uid="uid://cy6o70oodakie" path="res://scripts/god.gd" id="9_8we11"]
 
 [node name="Combat" type="Node3D"]
 script = ExtResource("1_4l26h")
@@ -156,48 +154,96 @@ texture = ExtResource("1_764e3")
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Enemy1" type="Node2D" parent="Enemies"]
-script = ExtResource("2_aic3r")
 
 [node name="Goblin" type="Sprite2D" parent="Enemies/Enemy1"]
 visible = false
-position = Vector2(313, 225)
-scale = Vector2(4.875, 4.875)
+position = Vector2(289.00003, 219.00002)
+scale = Vector2(6.0625, 6.0625)
 texture = ExtResource("3_4l26h")
-script = ExtResource("5_vcae8")
-
-[node name="Fireman" type="Sprite2D" parent="Enemies/Enemy1"]
-visible = false
-position = Vector2(459.00003, 403)
-scale = Vector2(11.921875, 11.921875)
-texture = ExtResource("6_4gnb8")
-script = ExtResource("7_sa5k0")
+script = ExtResource("2_aic3r")
+health = 30
+mindamage = 1
+maxdamage = 5
+maxspeed = 5.0
+speed = 5.0
+minxp = 10
+maxxp = 20
+metadata/_custom_type_script = "uid://0tfobjqljkaq"
 
 [node name="God" type="Sprite2D" parent="Enemies/Enemy1"]
 visible = false
-position = Vector2(429, 438)
-scale = Vector2(19.40625, 19.40625)
+position = Vector2(364, 438)
+scale = Vector2(20.71875, 20.71875)
 texture = ExtResource("8_sa5k0")
-script = ExtResource("9_8we11")
+script = ExtResource("2_aic3r")
+health = 100
+mindamage = 5
+maxdamage = 20
+maxspeed = 5.0
+speed = 5.0
+metadata/_custom_type_script = "uid://0tfobjqljkaq"
+
+[node name="Fireman" type="Sprite2D" parent="Enemies/Enemy1"]
+visible = false
+position = Vector2(446, 425)
+scale = Vector2(11.09375, 11.09375)
+texture = ExtResource("6_4gnb8")
+script = ExtResource("2_aic3r")
+health = 200
+mindamage = 10
+maxdamage = 20
+maxspeed = 5.0
+speed = 5.0
+metadata/_custom_type_script = "uid://0tfobjqljkaq"
+
+[node name="CloakedMan" type="Sprite2D" parent="Enemies/Enemy1"]
+visible = false
+position = Vector2(446, 425)
+scale = Vector2(11.09375, 11.09375)
+texture = ExtResource("7_4gnb8")
+script = ExtResource("2_aic3r")
+health = 50
+mindamage = 1
+maxdamage = 5
+maxspeed = 5.0
+speed = 5.0
+minxp = 30
+maxxp = 50
+metadata/_custom_type_script = "uid://0tfobjqljkaq"
 
 [node name="Enemy2" type="Node2D" parent="Enemies"]
-script = ExtResource("2_aic3r")
 
 [node name="Goblin" type="Sprite2D" parent="Enemies/Enemy2"]
 visible = false
-position = Vector2(251.00003, 426)
-scale = Vector2(4.875, 4.875)
+position = Vector2(208, 422)
+scale = Vector2(5.8125, 5.8125)
 texture = ExtResource("3_4l26h")
-script = ExtResource("5_vcae8")
+script = ExtResource("2_aic3r")
+health = 30
+mindamage = 1
+maxdamage = 5
+maxspeed = 5.0
+speed = 5.0
+minxp = 10
+maxxp = 20
+metadata/_custom_type_script = "uid://0tfobjqljkaq"
 
 [node name="Enemy3" type="Node2D" parent="Enemies"]
-script = ExtResource("2_aic3r")
 
 [node name="Goblin" type="Sprite2D" parent="Enemies/Enemy3"]
 visible = false
-position = Vector2(313, 632)
-scale = Vector2(4.875, 4.875)
+position = Vector2(277, 643)
+scale = Vector2(6.25, 6.25)
 texture = ExtResource("3_4l26h")
-script = ExtResource("5_vcae8")
+script = ExtResource("2_aic3r")
+health = 30
+mindamage = 1
+maxdamage = 5
+maxspeed = 5.0
+speed = 5.0
+minxp = 10
+maxxp = 20
+metadata/_custom_type_script = "uid://0tfobjqljkaq"
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.81182885, 0.5838955, 0, -0.5838955, 0.81182885, 0, 4.013281, 3.4680984)

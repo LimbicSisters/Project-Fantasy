@@ -1,0 +1,6 @@
+[signal arg="lockmovement"]
+join Paul center
+join Ryka center
+Paul: Isn't the castle on the other island?
+Ryka: Yeah, but before we go there, we should check on the other shrine.
+[signal arg="allowmovement"]
