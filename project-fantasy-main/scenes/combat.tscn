@@ -155,7 +155,7 @@ texture = ExtResource("1_764e3")
 
 [node name="Enemy1" type="Node2D" parent="Enemies"]
 
-[node name="Goblin" type="Sprite2D" parent="Enemies/Enemy1"]
+[node name="Goblin1" type="Sprite2D" parent="Enemies/Enemy1"]
 visible = false
 position = Vector2(289.00003, 219.00002)
 scale = Vector2(6.0625, 6.0625)
@@ -176,7 +176,7 @@ position = Vector2(364, 438)
 scale = Vector2(20.71875, 20.71875)
 texture = ExtResource("8_sa5k0")
 script = ExtResource("2_aic3r")
-health = 100
+health = 400
 mindamage = 5
 maxdamage = 20
 maxspeed = 5.0
@@ -189,7 +189,7 @@ position = Vector2(446, 425)
 scale = Vector2(11.09375, 11.09375)
 texture = ExtResource("6_4gnb8")
 script = ExtResource("2_aic3r")
-health = 200
+health = 1000
 mindamage = 10
 maxdamage = 20
 maxspeed = 5.0
@@ -213,7 +213,7 @@ metadata/_custom_type_script = "uid://0tfobjqljkaq"
 
 [node name="Enemy2" type="Node2D" parent="Enemies"]
 
-[node name="Goblin" type="Sprite2D" parent="Enemies/Enemy2"]
+[node name="Goblin2" type="Sprite2D" parent="Enemies/Enemy2"]
 visible = false
 position = Vector2(208, 422)
 scale = Vector2(5.8125, 5.8125)
@@ -230,7 +230,7 @@ metadata/_custom_type_script = "uid://0tfobjqljkaq"
 
 [node name="Enemy3" type="Node2D" parent="Enemies"]
 
-[node name="Goblin" type="Sprite2D" parent="Enemies/Enemy3"]
+[node name="Goblin3" type="Sprite2D" parent="Enemies/Enemy3"]
 visible = false
 position = Vector2(277, 643)
 scale = Vector2(6.25, 6.25)

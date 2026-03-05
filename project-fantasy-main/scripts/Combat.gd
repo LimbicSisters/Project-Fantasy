@@ -21,7 +21,9 @@ class_name Combat
 @onready var rxp_label: Label = $UI/RXPLabel
 @onready var bossarrow: Sprite2D = $Arrows/bossarrow
 var enemy_nodes = []
-var ava_types = []
+var ava_types1 = []
+var ava_types2 = []
+var ava_types3 = []
 var enemycount
 var target
 var players = [Paul, Ryka]
@@ -41,13 +43,13 @@ func _ready() -> void:
 	choose_ava_types()
 	choose_enemy_count()
 	choose_enemy_type()
-	visible(enemy_1, enemy_nodes[0])
+	visible(ava_types1, enemy_nodes[0])
 	enemy_nodes[0].dead = false
 	if enemy_nodes.size() >= 2:
-		visible(enemy_2, enemy_nodes[1])
+		visible(ava_types2, enemy_nodes[1])
 		enemy_nodes[1].dead = false
 	if enemy_nodes.size() >= 3:
-		visible(enemy_3, enemy_nodes[2])
+		visible(ava_types3, enemy_nodes[2])
 		enemy_nodes[2].dead = false
 	setup = true
 
@@ -129,29 +131,39 @@ func choose_ava_types():
 	match SceneMangager.current_scene:
 		"res://scenes/cutscene.tscn":
 			boss = true
-			ava_types.append("Fireman")
+			ava_types1.append("Fireman")
 		"res://scenes/opening.tscn":
-			ava_types.append("Goblin")
+			ava_types1.append("Goblin1")
+			ava_types2.append("Goblin2")
+			ava_types3.append("Goblin3")
 		"res://scenes/cave_1.tscn":
 			if Vardump.recent_dialog == 6:
 				boss = true
-				ava_types.append("God")
+				ava_types1.append("God")
 			else:
-				ava_types.append("Goblin")
+				ava_types1.append("Goblin1")
+				ava_types2.append("Goblin2")
+				ava_types3.append("Goblin3")
 		"res://scenes/shrine_3.tscn":
 			match Vardump.recent_dialog:
 				12:
-					ava_types.append("CloakedMan")
+					ava_types1.append("CloakedMan")
 				13:
-					ava_types.append("God")
+					ava_types1.append("God")
 
 func choose_enemy_type():
+	var type2
+	var type3
 	for enemy in enemycount:
-		var type = ava_types.pick_random()
+		var type1 = ava_types1.pick_random()
+		if enemy_nodes.size() >= 2:
+			type2 = ava_types2.pick_random()
+		if enemy_nodes.size() == 3:
+			type3 = ava_types3.pick_random()
 		match enemy: 
 			1:
-				match type:
-					"Goblin":
+				match type1:
+					"Goblin1":
 						enemy_nodes.append(enemy_1.get_child(0))
 					"Fireman":
 						enemy_nodes.append(enemy_1.get_child(2))
@@ -160,13 +172,13 @@ func choose_enemy_type():
 					"CloakedMan":
 						enemy_nodes.append(enemy_1.get_child(3))
 			2:
-				match type:
-					"Goblin":
-						enemy_nodes.append(enemy_1.get_child(0))
+				match type2:
+					"Goblin2":
+						enemy_nodes.append(enemy_2.get_child(0))
 			3:
-				match type:
-					"Goblin":
-						enemy_nodes.append(enemy_1.get_child(0))
+				match type3:
+					"Goblin3":
+						enemy_nodes.append(enemy_3.get_child(0))
 
 func _on_attack_pressed() -> void:
 	if active:
@@ -194,11 +206,15 @@ func _on_attack_pressed() -> void:
 				Paul:
 					Paul.attack(attacktarget)
 					if attacktarget.health <= 0:
-						die(attacktarget)
+						attacktarget.dead = true
+						attacktarget.visible = false
+						defeated.append(attacktarget)
 				Ryka:
 					Ryka.attack(attacktarget)
 					if attacktarget.health <= 0:
-						die(attacktarget)
+						attacktarget.dead = true
+						attacktarget.visible = false
+						defeated.append(attacktarget)
 
 func match_target(targetnum):
 	match targetnum:
@@ -271,23 +287,28 @@ func update_enemy_label():
 	enemieslabel.text = currenttext
 
 func end_combat():
-	Paul.health = Paul.maxhealth
-	Ryka.health = Ryka.maxhealth
-	Paul.dead = false
-	Ryka.dead = false
 	if players[0].dead and players[1].dead:
+		Paul.health = Paul.maxhealth
+		Ryka.health = Ryka.maxhealth
+		Paul.dead = false
+		Ryka.dead = false
 		ended = true
-		if Vardump.recent_dialog == 2:
-			SceneMangager.change_scene("res://scenes/cutscene.tscn")
-		elif Vardump.recent_dialog == 6:
-			SceneMangager.change_scene_arg(98, -29, 0.0, "res://scenes/cave_1.tscn")
-		elif Vardump.recent_dialog == 12:
-			SceneMangager.change_scene("res://scenes/shrine_3.tscn")
-		elif Vardump.recent_dialog == 13:
-			SceneMangager.change_scene("res://scenes/shrine_3.tscn")
-		else:
-			SceneMangager.change_scene("res://scenes/game_over.tscn")
+		if boss:
+			if Vardump.recent_dialog == 2:
+				SceneMangager.change_scene("res://scenes/cutscene.tscn")
+			elif Vardump.recent_dialog == 6:
+				SceneMangager.change_scene_arg(98, -29, 0.0, "res://scenes/cave_1.tscn")
+			elif Vardump.recent_dialog == 12:
+				SceneMangager.change_scene("res://scenes/shrine_3.tscn")
+			elif Vardump.recent_dialog == 13:
+				SceneMangager.change_scene("res://scenes/shrine_3.tscn")
+			else:
+				SceneMangager.change_scene("res://scenes/game_over.tscn")
 	else:
+		Paul.health = Paul.maxhealth
+		Ryka.health = Ryka.maxhealth
+		Paul.dead = false
+		Ryka.dead = false
 		ended = true
 		var rcurrent_text = """XP:
 Ryka:\n"""
@@ -316,17 +337,14 @@ Paul:\n"""
 
 func die(person):
 	person.dead = true
-	if person in enemy_nodes:
-		defeated.append(person)
-		person.visible = false
-	elif person in players:
+	if person in players:
 		match person:
 			Paul:
 				paul.visible = false
 			Ryka:
 				ryka.visible = false
 
-func visible(enemynode, enemytype):
-	for child in enemynode.get_children():
-		if enemytype.name == child.name:
-			child.visible = true
+func visible(enemytype, enemynode):
+	for type in enemytype:
+		if type == enemynode.name:
+			enemynode.visible = true
