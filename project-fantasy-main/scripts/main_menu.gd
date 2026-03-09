@@ -1,5 +1,8 @@
 extends Node2D
 
+func _ready() -> void:
+	Vardump.reset()
+
 func _on_play_pressed() -> void:
 	SceneMangager.change_scene("res://scenes/intro.tscn")
 

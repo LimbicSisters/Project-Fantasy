@@ -1,8 +1,7 @@
 [signal arg="Dialog3prep"]
-join Fireman center [mirrored="true"]
+join Fireman right [mirrored="true"]
 Fireman: Grow strong, give me a challenge
 leave Fireman
-[signal arg="Firefly"]
 join Paul center
 Paul: M- mom? Dad?
 join Ryka center

@@ -11,7 +11,7 @@ cloaked_man: I'm glad you listened...
 Paul: You.
 join Ryka center
 Ryka: Wait. He's planning something.
-join Fireman center
+join Fireman right [mirrored="true"]
 Fireman: So you saw through it.
 [signal arg="allowmovement"]
 [signal arg="changescene14"]

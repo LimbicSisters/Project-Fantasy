@@ -1,5 +1,5 @@
 [signal arg="lockmovement"]
-join God3 center
+join God3 right [mirrored="true"]
 God3: See? You are better for them than us...
 join Narrator center
 [signal arg="goddie"]

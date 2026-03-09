@@ -26,12 +26,12 @@ King: Yes.  His hideout is at the end of New Country.
 Paul: New Country?
 King: It's the land he completely controls, all the land on the other side of this castle.
 Paul: So basically, it's filled with his gang...
-King: Yeah.   He has camps al throughout the path to his main hideout.
+King: Yeah.
 Ryka: Paul, are we ready?
 label choice
 - Yes
 	Ryka: Alright, let's go!
-	[signal arg="allmowmovement"]
+	[signal arg="allowmovement"]
 	[signal arg="changescene11"]
 - No
 	Ryka: Yeah, we should probably prepare more.

@@ -1,16 +1,12 @@
 [signal arg="Dialog2prep"]
 Wait, please don't!
-join Fireman center [mirrored="true"]
+join Fireman right [mirrored="true"]
 Fireman: You should have paid your dues, we own this country now.
 join Paul center
-[signal arg="Paulrun"]
 Paul: WAIT! DON'T!
 join Ryka center
-[signal arg="Rykarun"]
 Ryka: PAUL, WAIT!
-[signal arg="Firenotice"]
 Fireman: Looks like I missed some
-[signal arg="FiremanReady"]
 join Narrator center
 Narrator: The man raises a hand, ready for combat.
 leave --All--

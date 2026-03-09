@@ -2,7 +2,7 @@
 join Narrator center
 Narrator: As they enter the room, the crystal is already cracking
 [signal arg="crystalshatter2"]
-join God2 center
+join God2 right [mirrored="true"]
 God2: Who awakened me? Was it you?
 join Ryka center
 Ryka: NO! We just got here, we were hoping to protect you, but it was already cracked.

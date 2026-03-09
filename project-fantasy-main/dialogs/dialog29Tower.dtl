@@ -1,5 +1,5 @@
 [signal arg="lockmovement"]
-join Fireman center
+join Fireman right [mirrored="true"]
 Fireman: Awaken, my lord, it is I, your Icon, I call you forth, Father.
 join Paul center
 Paul: Hey!
@@ -21,7 +21,7 @@ Paul: We know who you are.
 OldOne: Oh.  OH, Haha, I see, you are trying to stop me.  HAHAHAHAHA!
 Narrator: A light ovetakes you and the god you killed appears
 [signal arg="godappear"]
-join God3 center
+join God3 rightmost
 God3: I see now you are just, here, take my power.
 [signal arg="lightspawn"]
 Narrator: You unlocked your true powers!  You can use Holy Light and Ultima Beam along with all the other powers.

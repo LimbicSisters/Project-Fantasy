@@ -1,5 +1,5 @@
 [signal arg="lockmovement"]
-join God3 center
+join God3 right [mirrored="true"]
 God3: Who are you? Why do you have two gods' power?
 join Paul center
 Paul: Someone is freeing you, we are helping to stop them

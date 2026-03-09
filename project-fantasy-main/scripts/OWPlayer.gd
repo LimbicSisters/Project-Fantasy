@@ -7,6 +7,7 @@ const GRAVITY = -2000
 const SPEED = 2
 const RUNSPEED = 4
 var running = false
+var combatcooldown = 3.0
 var maxcooldown = 1.0
 var cooldown = 1.0
 var walking
@@ -14,6 +15,7 @@ var activedialog = false
 var paused = false
 
 func _ready() -> void:
+	combatcooldown = 3.0
 	Dialogic.signal_event.connect(_on_dialogic_signal)
 	remove_from_group("Player")
 	add_to_group("Player")
@@ -43,11 +45,14 @@ func _on_dialogic_signal(argument : String):
 
 func _physics_process(delta: float) -> void:
 	if not activedialog and not paused:
-		cooldown -= 1 * delta
-		if cooldown <= 0:
-			cooldown = maxcooldown
-			if try_combat():
-				SceneMangager.change_scene("res://scenes/combat.tscn")
+		if combatcooldown > 0:
+			combatcooldown -= 1 * delta
+		else:
+			cooldown -= 1 * delta
+			if cooldown <= 0:
+				cooldown = maxcooldown
+				if try_combat():
+					SceneMangager.change_scene("res://scenes/combat.tscn")
 	if is_on_floor() and not activedialog:
 		var input_dir = Input.get_vector("move_left", "move_right", "move_down", "move_up").normalized()
 		if running:

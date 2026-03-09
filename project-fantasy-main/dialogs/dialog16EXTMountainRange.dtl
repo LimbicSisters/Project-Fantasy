@@ -1,6 +1,6 @@
 [signal arg="lockmovement"]
-join Paul center
 [wait time="1.0"]
+join Paul center
 Paul: We- we killed that god.
 join Ryka center
 Ryka: We can't focus on that.

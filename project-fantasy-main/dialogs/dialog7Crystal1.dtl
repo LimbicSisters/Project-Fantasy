@@ -1,5 +1,5 @@
 [signal arg="lockmovement"]
-join God1 center
+join God1 right [mirrored="true"]
 God1: You were a fool to awaken me
 join Ryka center
 Ryka: WAIT! We really weren't the ones to release you, he ran off into that hole!

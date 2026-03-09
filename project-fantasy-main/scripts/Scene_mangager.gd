@@ -9,7 +9,7 @@ func change_scene_arg( locationX : float, locationY : float, locationZ : float, 
 	# Call deferred run changing scene
 	call_deferred("changing_scene", file)
 	# Wait for .1 seconds
-	await get_tree().create_timer(.1).timeout
+	await get_tree().create_timer(.01).timeout
 	# Set player to first node in player group
 	player = get_tree().get_first_node_in_group("Player")
 	# Set player position to new location
@@ -36,10 +36,10 @@ func _physics_process(_delta: float) -> void:
 	if get_tree().current_scene != null:
 		var scene = get_tree().current_scene.name
 		# If player is not null
-		if player != null and scene != "Combat" and scene != "InventoryMenu":
+		if player != null and scene != "Combat":
 			# Current location is set to player position
 			current_loc = player.global_position
-		if scene != "Combat" and scene != "InventoryMenu":
+		if scene != "Combat":
 			match scene:
 				"Opening":
 					current_scene = "res://scenes/opening.tscn"
@@ -47,6 +47,14 @@ func _physics_process(_delta: float) -> void:
 					current_scene = "res://scenes/cutscene.tscn"
 				"Cave1":
 					current_scene = "res://scenes/cave_1.tscn"
+				"Shrine1":
+					current_scene = "res://scenes/shrine_1.tscn"
+				"Shrine2":
+					current_scene = "res://scenes/shrine_2.tscn"
+				"Shrine3":
+					current_scene = "res://scenes/shrine_3.tscn"
+				"ISLAND2":
+					current_scene = "res://scenes/ISLAND2.tscn"
 	# Otherwise
 	else:
 		# Wait 1 second

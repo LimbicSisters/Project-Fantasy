@@ -18,7 +18,7 @@ cloaked_man: Thanks, suckers!
 Paul: Uh oh.
 [signal arg="crystalshatter"]
 Narrator: The crystal shatters! A giant seems to come from it.
-join God1 center
+join God1 right [mirrored="true"]
 God1: WHO DARES AWAKEN ME?!
 Paul: They ran off.
 God1: YOU THINK ME A FOOL?! RAISE THINE SWORD.

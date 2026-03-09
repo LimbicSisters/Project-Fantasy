@@ -144,12 +144,24 @@ func choose_ava_types():
 				ava_types1.append("Goblin1")
 				ava_types2.append("Goblin2")
 				ava_types3.append("Goblin3")
+		"res://scenes/shrine_2.tscn":
+			ava_types1.append("Goblin1")
+			ava_types2.append("Goblin2")
+			ava_types3.append("Goblin3")
 		"res://scenes/shrine_3.tscn":
 			match Vardump.recent_dialog:
 				12:
 					ava_types1.append("CloakedMan")
 				13:
 					ava_types1.append("God")
+				_:
+					ava_types1.append("Goblin1")
+					ava_types2.append("Goblin2")
+					ava_types3.append("Goblin3")
+		"res://scenes/ISLAND2.tscn.tscn":
+			ava_types1.append("Goblin1")
+			ava_types2.append("Goblin2")
+			ava_types3.append("Goblin3")
 
 func choose_enemy_type():
 	var type2
@@ -305,8 +317,6 @@ func end_combat():
 			else:
 				SceneMangager.change_scene("res://scenes/game_over.tscn")
 	else:
-		Paul.health = Paul.maxhealth
-		Ryka.health = Ryka.maxhealth
 		Paul.dead = false
 		Ryka.dead = false
 		ended = true
@@ -325,6 +335,8 @@ Paul:\n"""
 						rcurrent_text += (str(xp) + "\n")
 		Paul.level_check(Paul.XP)
 		Ryka.level_check(Ryka.XP)
+		Paul.health = Paul.maxhealth
+		Ryka.health = Ryka.maxhealth
 		pcurrent_text += "\nXP: " + str(Paul.XP) + "\nLevel:\n" + str(Paul.level)
 		rcurrent_text += "\nXP: " + str(Ryka.XP) + "\nLevel:\n" + str(Ryka.level)
 		pxp_label.text = pcurrent_text
