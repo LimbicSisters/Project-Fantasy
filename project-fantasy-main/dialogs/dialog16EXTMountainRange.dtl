@@ -1,8 +1,8 @@
 [signal arg="lockmovement"]
 [wait time="1.0"]
-join Paul center
+join Paul left
 Paul: We- we killed that god.
-join Ryka center
+join Ryka right [mirrored="true"]
 Ryka: We can't focus on that.
 Paul: Why are you never upset about anything?!
 Ryka: I just focus on-
@@ -14,4 +14,5 @@ Ryka: No.  My turn.  I AM upset.  I am DEVASTATED that we just did that.
 Ryka: But someone needs to focus on the mission at hand, otherwise we won't get anything done!
 Paul: Oh.
 Ryka: Yeah.  Let's keep going
+leave --All--
 [signal arg="allowmovement"]

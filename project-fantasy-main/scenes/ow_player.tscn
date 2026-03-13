@@ -18,6 +18,7 @@ shape = SubResource("CapsuleShape3D_x46k7")
 transform = Transform3D(-3.7855173e-08, 0.5, -0.8660254, 2.1855694e-08, 0.8660254, 0.5, 1, 0, -4.371139e-08, -4.8054256, 5.8509226, 0)
 
 [node name="Player" parent="CharacterBody3D" instance=ExtResource("2_74311")]
+script = null
 
 [node name="PauseMenu" type="Node2D" parent="CharacterBody3D"]
 visible = false
@@ -33,16 +34,6 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Back to Menu"
 
-[node name="PaulPower" type="Button" parent="CharacterBody3D/PauseMenu/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "Change Paul Power"
-
-[node name="RykaPower" type="Button" parent="CharacterBody3D/PauseMenu/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "Change Ryka Power"
-
 [node name="You" type="Label" parent="CharacterBody3D/PauseMenu"]
 visible = false
 offset_left = 698.0
@@ -53,5 +44,3 @@ theme_override_font_sizes/font_size = 40
 text = "You don't have any power!"
 
 [connection signal="pressed" from="CharacterBody3D/PauseMenu/VBoxContainer/Menu" to="CharacterBody3D" method="_on_menu_pressed"]
-[connection signal="pressed" from="CharacterBody3D/PauseMenu/VBoxContainer/PaulPower" to="CharacterBody3D" method="_on_paul_power_pressed"]
-[connection signal="pressed" from="CharacterBody3D/PauseMenu/VBoxContainer/RykaPower" to="CharacterBody3D" method="_on_ryka_power_pressed"]

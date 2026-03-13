@@ -149,16 +149,3 @@ func move_arrow_up(enemytargets, arrow1, arrow2, arrow3, target):
 						arrow1.visible = true
 						newtarget = 1
 	return newtarget
-
-func healarrow(arrow1, arrow2, target):
-	var newtarget
-	if target == 4:
-		arrow1.visible = false
-		newtarget = 5
-		arrow2.visible = true
-	else:
-		arrow2.visible = false
-		newtarget = 4
-		arrow1.visible = true
-	return newtarget
-	

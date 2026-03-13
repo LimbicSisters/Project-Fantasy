@@ -1,9 +1,10 @@
 [signal arg="lockmovement"]
-join Paul center
+join Paul left
 Paul: Here we are.
-join Ryka center
+join Ryka right
 Ryka: Yep.
 join Narrator center
 Narrator: The kids kick the door down
+leave --All--
 [signal arg="allowmovement"]
 [signal arg="changescene12"]

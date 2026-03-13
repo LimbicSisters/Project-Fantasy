@@ -1,9 +1,8 @@
 extends Node3D
 @onready var static_body_3d_2: StaticBody3D = $island2/StaticBody3D2
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Dialogic.signal_event.connect(_on_dialogic_signal)
 	if not Vardump.dialog16ran:
 		Dialogic.start("dialog16EXTMountainRange")
 		Vardump.dialog16ran = true
@@ -12,12 +11,17 @@ func _ready() -> void:
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Player"):
-		pass
+		Dialogic.start("dialog23EXTNewCountry")
+		Vardump.recent_dialog = 23
 
 func _on_area_3d_2_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Player"):
-		pass
+		SceneMangager.change_scene("res://scenes/castle.tscn")
 
 func _on_area_3d_3_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Player"):
-		pass
+		SceneMangager.change_scene("res://scenes/mountain.tscn")
+
+func _on_dialogic_signal(argument : String):
+	if argument == "changescene12":
+		SceneMangager.change_scene("res://scenes/hideout.tscn")

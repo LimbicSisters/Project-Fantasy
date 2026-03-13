@@ -1,6 +1,6 @@
 [signal arg="lockmovement"]
-join Paul center
-join Ryka center
+join Paul left
+join Ryka right
 Paul: Yeah! Take that!
 join Narrator center
 Narrator: The dragon lies down and dies, revealing eggs.
@@ -9,4 +9,5 @@ Ryka: I guess it was just protecting its kids.
 Paul: WHY DOES THIS KEEP HAPPENING?!
 Ryka: Just leave them, they won't make it long.
 Narrator: The kids return to the castle
+leave --All--
 [signal arg="changescene9"]

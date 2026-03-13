@@ -55,6 +55,12 @@ func _physics_process(_delta: float) -> void:
 					current_scene = "res://scenes/shrine_3.tscn"
 				"ISLAND2":
 					current_scene = "res://scenes/ISLAND2.tscn"
+				"Castle":
+					current_scene = "res://scenes/castle.tscn"
+				"Tower":
+					current_scene = "res://scenes/tower.tscn"
+				"OtherWorld":
+					current_scene = "res://scenes/other_world.tscn"
 	# Otherwise
 	else:
 		# Wait 1 second

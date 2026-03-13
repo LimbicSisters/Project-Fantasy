@@ -1,10 +1,8 @@
-[gd_scene load_steps=34 format=3 uid="uid://c1125wovdaofq"]
+[gd_scene load_steps=33 format=3 uid="uid://c1125wovdaofq"]
 
 [ext_resource type="Script" uid="uid://bsrks5r81mrxb" path="res://scripts/cave_1dialog.gd" id="1_6ybob"]
 [ext_resource type="PackedScene" uid="uid://0lxgmh4n0tw8" path="res://Models/cave1.blend" id="1_kx55l"]
 [ext_resource type="PackedScene" uid="uid://bou1g0t214jfd" path="res://scenes/ow_player.tscn" id="2_creb0"]
-[ext_resource type="Script" uid="uid://p0q3u1lnwr71" path="res://scripts/fallingblocks.gd" id="2_flsg1"]
-[ext_resource type="Script" uid="uid://boffmdnixmhsb" path="res://scripts/groundhit.gd" id="3_d4kx6"]
 [ext_resource type="PackedScene" uid="uid://b1xqy2cct74me" path="res://Models/fallingblocks.blend" id="5_ifogu"]
 [ext_resource type="PackedScene" uid="uid://bs2hbca3x4tlo" path="res://Models/crystal.blend" id="7_ppud2"]
 [ext_resource type="PackedScene" uid="uid://brvdimr2wkh3" path="res://scenes/Player.tscn" id="8_3lg20"]
@@ -74,6 +72,22 @@ size = Vector3(4.025635, 4.08313, 2.038147)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h14om"]
 size = Vector3(1.8131104, 3.8739014, 4.183655)
+
+[sub_resource type="GDScript" id="GDScript_ifogu"]
+script/source = "extends Node
+
+func _ready() -> void:
+	Dialogic.signal_event.connect(_on_dialogic_signal)
+
+func _on_dialogic_signal(argument : String):
+	if argument == \"floordissolve\":
+		queue_free()
+
+func _on_body_entered(body: Node3D) -> void:
+	if body.is_in_group(\"Player\"):
+		Dialogic.start(\"dialog4INTCAVES1\")
+		Vardump.recent_dialog = 4
+"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v466q"]
 size = Vector3(6.807617, 1.4838257, 4.5219727)
@@ -411,12 +425,11 @@ transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, -99.
 shape = SubResource("BoxShape3D_k7aj0")
 
 [node name="Dialogtrigger1" type="Area3D" parent="cave1"]
-script = ExtResource("2_flsg1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="cave1/Dialogtrigger1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90.65713, 2.7374072, -5.032069)
 shape = SubResource("BoxShape3D_h14om")
-script = ExtResource("2_flsg1")
+script = SubResource("GDScript_ifogu")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="cave1/Dialogtrigger1"]
 
@@ -428,7 +441,6 @@ shape = SubResource("BoxShape3D_v466q")
 transform = Transform3D(2.6226832e-07, 0, 2, 0, 2, 0, -2, 0, 2.6226832e-07, -88.68264, -1.0222824, -4.9691157)
 
 [node name="Dialogtrigger2" type="Area3D" parent="cave1"]
-script = ExtResource("3_d4kx6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="cave1/Dialogtrigger2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90.00527, -38.989227, -1.9937992)
@@ -452,7 +464,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 108.75906, -24.50136, 0.58794
 [node name="god" parent="." instance=ExtResource("8_3lg20")]
 transform = Transform3D(-2.4, 0, -1.7484555e-07, 0, 2, 0, 2.0981467e-07, 0, -2, 109.420204, -32.53811, 0.8956945)
 visible = false
+script = null
 
-[connection signal="body_entered" from="cave1/Dialogtrigger1" to="cave1/Dialogtrigger1" method="_on_body_entered"]
-[connection signal="body_entered" from="cave1/Dialogtrigger2" to="cave1/Dialogtrigger2" method="_on_body_entered"]
+[connection signal="body_entered" from="cave1/Dialogtrigger1" to="." method="_on_dialogtrigger_1_body_entered"]
+[connection signal="body_entered" from="cave1/Dialogtrigger2" to="." method="_on_dialogtrigger_2_body_entered"]
 [connection signal="body_entered" from="cave1/Area3D" to="." method="_on_area_3d_body_entered"]

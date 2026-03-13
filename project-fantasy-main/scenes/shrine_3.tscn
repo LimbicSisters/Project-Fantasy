@@ -82,6 +82,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9230976, 5.399916, -1.0604
 [node name="Player" parent="." instance=ExtResource("4_c4y0f")]
 transform = Transform3D(2.4, 0, 0, 0, 2, 0, 0, 0, 2, -6.3191776, -3.2374434, -1.2492323)
 visible = false
+script = null
 
 [node name="OWPlayer" parent="." instance=ExtResource("5_c4y0f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.000436, 1, -1)

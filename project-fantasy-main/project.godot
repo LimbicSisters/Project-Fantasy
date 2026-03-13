@@ -20,8 +20,6 @@ config/icon="res://icon.svg"
 
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 SceneMangager="*res://scripts/Scene_mangager.gd"
-Paul="*res://scripts/Paul.gd"
-Ryka="*res://scripts/Ryka.gd"
 Vardump="*res://scripts/vardump.gd"
 ArrowManager="*res://scripts/ArrowManager.gd"
 
@@ -46,7 +44,6 @@ directories/dtl_directory={
 "dialog12Crystal3": "res://dialogs/dialog12Crystal3.dtl",
 "dialog13Crystal3": "res://dialogs/dialog13Crystal3.dtl",
 "dialog14Crystal3": "res://dialogs/dialog14Crystal3.dtl",
-"dialog15NearbyTown": "res://dialogs/dialog15NearbyTown.dtl",
 "dialog16EXTMountainRange": "res://dialogs/dialog16EXTMountainRange.dtl",
 "dialog17EXTCastleYard": "res://dialogs/dialog17EXTCastleYard.dtl",
 "dialog18INTCastle": "res://dialogs/dialog18INTCastle.dtl",
@@ -58,9 +55,6 @@ directories/dtl_directory={
 "dialog23EXTNewCountry": "res://dialogs/dialog23EXTNewCountry.dtl",
 "dialog24INTHideout": "res://dialogs/dialog24INTHideout.dtl",
 "dialog25EXTBetweenDimensions": "res://dialogs/dialog25EXTBetweenDimensions.dtl",
-"dialog26EXTDimensionTown": "res://dialogs/dialog26EXTDimensionTown.dtl",
-"dialog27INTChapel": "res://dialogs/dialog27INTChapel.dtl",
-"dialog28Lobby": "res://dialogs/dialog28Lobby.dtl",
 "dialog29Tower": "res://dialogs/dialog29Tower.dtl",
 "dialog2EXTSmallTown": "res://dialogs/dialog2EXTSmallTown.dtl",
 "dialog30Epliogue": "res://dialogs/dialog30Epliogue.dtl",
@@ -74,11 +68,10 @@ directories/dtl_directory={
 }
 layout/style_directory={
 "": "res://Styles/Style.tres",
-"OldOne": "res://Styles/OldOne.tres",
 "Style": "res://Styles/Style.tres"
 }
 glossary/default_case_sensitive=true
-layout/style_list=["res://Styles/Style.tres", "res://Styles/OldOne.tres"]
+layout/style_list=["res://Styles/Style.tres"]
 layout/default_style="res://Styles/Style.tres"
 variables={}
 extensions_folder="res://addons/dialogic_additions"

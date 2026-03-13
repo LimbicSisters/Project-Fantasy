@@ -1,12 +1,12 @@
-[gd_scene load_steps=34 format=3 uid="uid://dcmlnuvnm07x"]
+[gd_scene load_steps=35 format=3 uid="uid://dcmlnuvnm07x"]
 
 [ext_resource type="Script" uid="uid://cqs8sq3ab6rby" path="res://scripts/opening.gd" id="1_fvetl"]
 [ext_resource type="PackedScene" uid="uid://d7amv1t6qkmq" path="res://Models/Opening.blend" id="1_gafq3"]
 [ext_resource type="PackedScene" uid="uid://bou1g0t214jfd" path="res://scenes/ow_player.tscn" id="2_gafq3"]
-[ext_resource type="PackedScene" uid="uid://5ujcfmm5y7vy" path="res://scenes/cave_entrance.tscn" id="3_y6ged"]
+[ext_resource type="PackedScene" uid="uid://cjl5gpbyxa8ed" path="res://Models/cave_entrance.blend" id="4_fvetl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fvetl"]
-size = Vector3(189.42299, 1.5166016, 107.730225)
+size = Vector3(195.14008, 1.5166016, 107.730225)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_y6ged"]
 size = Vector3(0.92333984, 6.206665, 9.029541)
@@ -92,6 +92,9 @@ size = Vector3(2.942871, 5.8377686, 6.954529)
 [sub_resource type="BoxShape3D" id="BoxShape3D_tu3vl"]
 size = Vector3(1, 8.831787, 30.123474)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_gh5no"]
+size = Vector3(4.627075, 8.796875, 3.9362793)
+
 [node name="Opening" type="Node3D"]
 script = ExtResource("1_fvetl")
 
@@ -105,7 +108,7 @@ transform = Transform3D(-0.5, 0, -4.371139e-08, 0, 0.5, 0, 4.371139e-08, 0, -0.5
 [node name="StaticBody3D" type="StaticBody3D" parent="Opening"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Opening/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.67127, 0.25830078, -15.011838)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.168877, 0.68422127, -15.011843)
 shape = SubResource("BoxShape3D_fvetl")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Opening/StaticBody3D"]
@@ -363,11 +366,15 @@ shape = SubResource("BoxShape3D_tu3vl")
 [node name="OWPlayer" parent="." instance=ExtResource("2_gafq3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.4769173, 1, -2)
 
-[node name="Cave_Entrance" parent="." instance=ExtResource("3_y6ged")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 8.388982, 0.24555898, -1.5864476)
-file = "res://scenes/cave_1.tscn"
-xloc = -8
-yloc = 1
+[node name="cave_entrance" parent="." instance=ExtResource("4_fvetl")]
+transform = Transform3D(-0.25, 0, 3.774895e-08, 0, 0.25, 0, -3.774895e-08, 0, -0.25, 8.076138, 0.5059166, -1.5860409)
+
+[node name="Area3D" type="Area3D" parent="cave_entrance"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="cave_entrance/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6952305, 3.8984375, 0.05472946)
+shape = SubResource("BoxShape3D_gh5no")
 
 [connection signal="body_entered" from="Opening/Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="Opening/Area3D2" to="." method="_on_area_3d_2_body_entered"]
+[connection signal="body_entered" from="cave_entrance/Area3D" to="." method="_on_cave_area_3d_body_entered"]

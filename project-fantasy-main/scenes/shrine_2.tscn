@@ -40,6 +40,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 4.7257957, -1)
 [node name="God" parent="." instance=ExtResource("5_pfbnq")]
 transform = Transform3D(-2.4, 0, 1.7484555e-07, 0, 2, 0, -2.0981467e-07, 0, -2, 17.966263, -3.37215, -0.9554992)
 visible = false
+script = null
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 

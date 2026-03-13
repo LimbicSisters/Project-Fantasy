@@ -1,9 +1,10 @@
 [signal arg="lockmovement"]
 join God3 right [mirrored="true"]
 God3: Who are you? Why do you have two gods' power?
-join Paul center
+join Paul left
 Paul: Someone is freeing you, we are helping to stop them
 God3: Well a lot of good you are doing, TWO OF US ARE DEAD!
 God3: You know what, I'm not giving you my powers, put em up.
+leave --All--
 [signal arg="allowmovement"]
 [signal arg="changescene6"]

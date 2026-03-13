@@ -1,8 +1,8 @@
 [signal arg="lockmovement"]
-join Paul center
+join Paul left
 Paul: Hey!
 Guard: What is your buisness?
-join Ryka center
+join Ryka leftmost
 Ryka: We are here about the Fireman.
 Guard: I see.  I can't let you through though, you see, I don't trust you.
 Paul: How can we earn your trust?
@@ -12,4 +12,6 @@ Paul: Ok.
 Ryka: Paul?
 Paul: There's no other way, is there?
 Guard: No.
+leave --All--
 [signal arg="allowmovement"]
+[signal arg="changesceneagain"]

@@ -1,10 +1,10 @@
 [signal arg="lockmovement"]
 join Fireman right [mirrored="true"]
 Fireman: Awaken, my lord, it is I, your Icon, I call you forth, Father.
-join Paul center
+join Paul left
 Paul: Hey!
 Fireman: I can't believe you made it!  Welcome, be happy, you see me bring about an age of the gods!
-join Ryka center
+join Ryka leftmost
 Ryka: He's going to destroy the world!
 Fireman: You think I care for some other world of ants?!
 Ryka: You were born of that world, you ARE one of those ants!
@@ -14,17 +14,13 @@ Fireman: Yes, the King...
 Fireman: KING OF THE GODS!
 join Narrator center
 Narrator: Fireman turns around and walks into the cracking crystal
+leave Fireman [animation="Slide To Right"]
 Narrator: It sucks inward and implodes, revealing a true god.
-join OldOne center
+join OldOne right
 OldOne: Why hello, I don't believe we've met, I'm the Old One.
 Paul: We know who you are.
 OldOne: Oh.  OH, Haha, I see, you are trying to stop me.  HAHAHAHAHA!
-Narrator: A light ovetakes you and the god you killed appears
-[signal arg="godappear"]
-join God3 rightmost
-God3: I see now you are just, here, take my power.
-[signal arg="lightspawn"]
-Narrator: You unlocked your true powers!  You can use Holy Light and Ultima Beam along with all the other powers.
-OldOne: I see, raise thy weapon.
+OldOne: Oh you are serious.  I see, raise thy weapon.
+leave --All--
 [signal arg="allowmovement"]
 [signal arg="changescene19"]

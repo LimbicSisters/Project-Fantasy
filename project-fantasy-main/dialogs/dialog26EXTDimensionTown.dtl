@@ -1,7 +1,0 @@
-[signal arg="lockmovement"]
-[wait time="1.0"]
-Person: Hey!  You're not from around here, we don't get visitors often.
-join Ryka center
-Ryka: Why are there people here?
-Person: Follow me.
-[signal arg="changescene17"]

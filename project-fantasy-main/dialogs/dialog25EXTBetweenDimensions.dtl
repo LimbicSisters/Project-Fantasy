@@ -1,10 +1,8 @@
 [signal arg="lockmovement"]
-join Paul center
+join Paul left
 [wait time="1.0"]
 Paul: Where are we?
-join Ryka center
+join Ryka right
 Ryka: I'm not sure, let's keep going.
-join Narrator center
-Narrator: The kids walk into a nearby town.
+leave --All--
 [signal arg="allowmovement"]
-[signal arg="changescene16"]

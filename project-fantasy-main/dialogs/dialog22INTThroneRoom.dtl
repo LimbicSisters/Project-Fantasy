@@ -1,13 +1,13 @@
 [signal arg="lockmovement"]
-join King center
+join King right [mirrored="true"]
 [wait time="1.0"]
 King: Why hello, thank you for taking care of that dragon, now, I heard you know something about the Firegangers?
-join Paul center
+join Paul left
 Paul: Firegangers?
 King: The guard said you mentioned the Fireman?  That's his gang.
 Paul: Ohhhh, yeah, we fought him.
 King: And you survived?! How?
-join Ryka center
+join Ryka leftmost
 Ryka: He- he let us live, said to "Give him a challenge"
 King: That means he saw something in you, which is not a good thing.
 King: He holds a darkness within him unlike everything I've ever seen.
@@ -27,12 +27,7 @@ Paul: New Country?
 King: It's the land he completely controls, all the land on the other side of this castle.
 Paul: So basically, it's filled with his gang...
 King: Yeah.
-Ryka: Paul, are we ready?
-label choice
-- Yes
-	Ryka: Alright, let's go!
-	[signal arg="allowmovement"]
-	[signal arg="changescene11"]
-- No
-	Ryka: Yeah, we should probably prepare more.
-	[signal arg="allowmovement"]
+Ryka: Alright, let's go!
+leave --All--
+[signal arg="allowmovement"]
+[signal arg="changescene11"]

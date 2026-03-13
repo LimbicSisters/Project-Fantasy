@@ -1,10 +1,11 @@
 extends Node
 class_name Player
 @export var maxhealth : int = 30
+@export var maxspeed : int
+var speed = maxspeed
 var health : int = maxhealth
 var strength : float = 1
-@export var level : int = 1
-@export var XP : int = 1
+var level : int = 1
 var dead = false
 
 func level_check(xp):

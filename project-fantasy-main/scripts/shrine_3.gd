@@ -5,20 +5,17 @@ extends Node3D
 
 func _ready() -> void:
 	Dialogic.signal_event.connect(_on_dialogic_signal)
-	if Vardump.recent_dialog == 11 and not Vardump.dialog12ran:
+	if Vardump.recent_dialog == 11:
 		Dialogic.start("dialog12Crystal3")
 		Vardump.recent_dialog = 12
-		Vardump.dialog12ran = true
-	elif Vardump.recent_dialog == 12 and not Vardump.dialog13ran:
+	elif Vardump.recent_dialog == 12:
 		Dialogic.start("dialog13Crystal3")
 		Vardump.recent_dialog = 13
-		Vardump.dialog13ran = true
 		crystal.visible = false
 		player.visible = true
-	elif Vardump.recent_dialog == 13 and not Vardump.dialog14ran:
+	elif Vardump.recent_dialog == 13:
 		Dialogic.start("dialog14Crystal3")
 		Vardump.recent_dialog = 14
-		Vardump.dialog14ran = true
 
 func _on_dialogic_signal(argument : String):
 	if argument == "changescene5":

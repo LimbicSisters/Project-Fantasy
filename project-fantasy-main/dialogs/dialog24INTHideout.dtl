@@ -1,6 +1,6 @@
 [signal arg="lockmovement"]
-join Paul center
-join cloaked_man center
+join Paul left
+join cloaked_man rightmost [mirrored="true"]
 Paul: HEY!
 cloaked_man: Ah, welcome.
 [signal arg="allowmovement"]
@@ -8,10 +8,11 @@ cloaked_man: Ah, welcome.
 label COMBAT
 [signal arg="lockmovement"]
 cloaked_man: I'm glad you listened...
+leave cloaked_man
+join Fireman rightmost [mirrored="true"]
 Paul: You.
-join Ryka center
+join Ryka leftmost
 Ryka: Wait. He's planning something.
-join Fireman right [mirrored="true"]
 Fireman: So you saw through it.
 [signal arg="allowmovement"]
 [signal arg="changescene14"]
@@ -26,8 +27,11 @@ Narrator: The crystal begins to crack!  You lost your innate powers.
 join God4 center
 God4: Who are you?
 Fireman: Your death.
+[signal arg="powerlost"]
+leave God4
 Narrator: You feel a power overtake you but you still can't use your powers.
 Fireman: Ha!  Hahahahahah!  I gain power for each crystal shattered and you think you can stop me?!
 Narrator: A rift opens, Fireman walks through, the kids follow.
+leave --All--
 [signal arg="allowmovement"]
 [signal arg="changescene15"]
