@@ -16,12 +16,12 @@ extends Node
 @onready var pxp_label: Label = $UI/PXPLabel
 @onready var rxp_label: Label = $UI/RXPLabel
 @onready var bossarrow: Sprite2D = $Arrows/bossarrow
-var arrows = [arrow, arrow_2, arrow_3, bossarrow]
+@onready var arrows = [arrow, arrow_2, arrow_3, bossarrow]
+@onready var players = [paul, ryka]
 var enemy_nodes = []
 var ava_types = []
 var enemycount
 var target
-var players = [paul, ryka]
 var active = false
 var activeplayer
 var targeting = false
@@ -31,6 +31,8 @@ var setup = false
 var boss = false
 
 func _ready() -> void:
+	paul.speed = paul.maxspeed
+	ryka.speed = ryka.maxspeed
 	paul.level_check(Vardump.PaulXP)
 	ryka.level_check(Vardump.RykaXP)
 	ryka_speed.max_value = ryka.maxspeed
@@ -296,16 +298,17 @@ Paul:\n"""
 		for enemy in defeated:
 			for player in players:
 				var xp = randi_range(enemy.minxp, enemy.maxxp)
-				player.XP += xp
 				match player:
 					paul:
+						Vardump.PaulXP += xp
 						pcurrent_text += (str(xp) + "\n")
+						paul.level_check(Vardump.PaulXP)
 					ryka:
+						Vardump.RykaXP += xp
 						rcurrent_text += (str(xp) + "\n")
-		for player in players:
-			player.level_check(player.XP)
-			player.health = player.maxhealth
-			player.dead = false
+						ryka.level_check(Vardump.RykaXP)
+				player.health = player.maxhealth
+				player.dead = false
 		pcurrent_text += "\nXP: " + str(Vardump.PaulXP) + "\nLevel:\n" + str(paul.level)
 		rcurrent_text += "\nXP: " + str(Vardump.RykaXP) + "\nLevel:\n" + str(ryka.level)
 		pxp_label.text = pcurrent_text
