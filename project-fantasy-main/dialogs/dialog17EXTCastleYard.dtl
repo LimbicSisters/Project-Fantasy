@@ -1,7 +1,0 @@
-[signal arg="lockmovement"]
-join Paul left
-Paul: So this is the castle.  I've always wanted to see it.
-join Ryka right
-Ryka: Let's go.
-leave --All--
-[signal arg="allowmovement"]

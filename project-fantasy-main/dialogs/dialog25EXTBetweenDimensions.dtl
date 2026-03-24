@@ -1,8 +1,0 @@
-[signal arg="lockmovement"]
-join Paul left
-[wait time="1.0"]
-Paul: Where are we?
-join Ryka right
-Ryka: I'm not sure, let's keep going.
-leave --All--
-[signal arg="allowmovement"]

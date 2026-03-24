@@ -1,7 +1,0 @@
-[signal arg="lockmovement"]
-join Paul left
-join Ryka right
-Paul: Sooo, where are we going?
-Ryka: That man said "We own this country now" so maybe the king knows something?
-Paul: That makes sense, let's go!
-[signal arg="allowmovement"]

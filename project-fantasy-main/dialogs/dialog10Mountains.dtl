@@ -1,7 +1,0 @@
-[signal arg="lockmovement"]
-join Paul left
-join Ryka right [mirrored="true"]
-Paul: Isn't the castle on the other island?
-Ryka: Yeah, but before we go there, we should check on the other shrine.
-leave --All--
-[signal arg="allowmovement"]

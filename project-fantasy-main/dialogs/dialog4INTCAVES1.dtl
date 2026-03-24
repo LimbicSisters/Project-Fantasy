@@ -1,8 +1,0 @@
-[signal arg="lockmovement"]
-join Ryka center
-Ryka: Wait, something's wrong
-CREAK*
-[signal arg="floordissolve"]
-AAAAAAAAAAAAAAAAAAA
-leave --All--
-[signal arg="allowmovement"]
