@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2xggsu4ydynk"]
+
+[ext_resource type="Script" uid="uid://dnmylsa6yi00i" path="res://scripts/game_over.gd" id="1_a842l"]
+
+[node name="The End" type="Node2D"]
+script = ExtResource("1_a842l")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 528.0
+offset_top = 334.0
+offset_right = 1309.0
+offset_bottom = 756.0
+theme_override_font_sizes/font_size = 59
+text = "THE END
+
+Thank you for playing!
+
+
+
+
+Press E to go back to menu."
+horizontal_alignment = 1

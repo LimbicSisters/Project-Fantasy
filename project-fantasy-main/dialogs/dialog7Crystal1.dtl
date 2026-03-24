@@ -1,0 +1,24 @@
+[signal arg="lockmovement"]
+join God1 right [mirrored="true"]
+God1: You were a fool to awaken me
+join Ryka left
+Ryka: WAIT! We really weren't the ones to release you, he ran off into that hole!
+God1: Oh.  I see.  In that case, can I ask for your help?
+join Paul leftmost
+Paul: Really? You attack us then ask for our help?!
+God1: As much as I wish I could say no... It ties into the fate of the world.
+Ryka: Let's hear about it before we decide
+God1: Fine... 300 years ago, "The Old One" threatened the world and we gods trapped him
+God1: If I'm free, someone is trying to free him.  If I give you my power, will you stop him?
+Ryka: Wait, but if you do that-
+God1: stop, I know the consequences.  I'm dying anyway, just let me do this.
+God1: Think of it as... reparation for attacking you.
+Ryka: ...
+Paul: ...
+Ryka: fine.
+[signal arg="lightspawn"]
+join Narrator center
+Narrator: The god gives you it's power!  You feel no different...
+leave --All--
+[signal arg="allowmovement"]
+[signal arg="changescenesomn"]

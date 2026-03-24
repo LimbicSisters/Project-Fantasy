@@ -1,0 +1,15 @@
+[signal arg="lockmovement"]
+join Narrator center
+Narrator: The moment you enter, you see the cloaked man hunched over the pillar.
+join Paul left
+Paul: Hey! Stop that!
+join cloaked_man rightmost [mirrored="true"]
+cloaked_man: No.
+Paul: Stop!
+cloaked_man: no.
+Paul: For real, st-
+join Ryka center
+Ryka: AAAAAAAAAAAAAAAAAAAA
+leave --All--
+[signal arg="allowmovement"]
+[signal arg="changescene5"]

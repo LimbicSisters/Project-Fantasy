@@ -1,0 +1,36 @@
+[signal arg="lockmovement"]
+join Paul left
+join cloaked_man rightmost [mirrored="true"]
+Paul: HEY!
+cloaked_man: Ah, welcome.
+[signal arg="allowmovement"]
+[signal arg="changescene13"]
+label COMBAT
+[signal arg="lockmovement"]
+cloaked_man: I'm glad you listened...
+leave cloaked_man
+join Fireman rightmost [mirrored="true"]
+Paul: You.
+join Ryka leftmost
+Ryka: Wait. He's planning something.
+Fireman: So you saw through it.
+[signal arg="allowmovement"]
+[signal arg="changescene14"]
+label COMBAT2
+[signal arg="lockmovement"]
+Fireman: Thanks for following me, oh, and for taking out the gods.
+Paul: What, no, they gave us their powers.
+Fireman: I know, that's what I mean.
+Fireman: Thank you, this crystal doesn't have pillars so only the power of another god can open it.
+join Narrator center
+Narrator: The crystal begins to crack!  You lost your innate powers... You still feel the same.
+join God4 center
+God4: Who are you?
+Fireman: Your death.
+leave God4
+Narrator: You feel a power overtake you but you still can't use your powers.
+Fireman: Ha!  Hahahahahah!  I gain power for each crystal shattered and you think you can stop me?!
+Narrator: A rift opens, Fireman walks through, the kids follow.
+leave --All--
+[signal arg="allowmovement"]
+[signal arg="changescene15"]

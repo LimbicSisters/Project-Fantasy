@@ -1,0 +1,14 @@
+[signal arg="lockmovement"]
+join God3 right [mirrored="true"]
+God3: See? You are better for them than us...
+join Narrator center
+[signal arg="goddie"]
+Narrator: The god dies without giving you his powers.
+leave God3
+join Paul left
+join Ryka leftmost
+Paul: oh... Oh god.
+Ryka: did we just-
+Ryka:  let's just- let's just go.
+leave --All--
+[signal arg="allowmovement"]

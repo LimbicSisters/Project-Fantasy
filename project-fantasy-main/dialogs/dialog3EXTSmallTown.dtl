@@ -1,0 +1,15 @@
+[signal arg="Dialog3prep"]
+join Fireman right [mirrored="true"]
+Fireman: Grow strong, give me a challenge
+leave Fireman
+join Paul left
+Paul: M- mom? Dad?
+join Ryka leftmost
+Ryka: Don't look at them, look at me.
+Paul: O- okay, what do we do?
+Ryka: We leave the hole.
+Paul: But we can't, it's too dangerous!
+Ryka: Do you see another way?!  Just sit here and die?!
+Paul: Ok.
+leave --All--
+[signal arg="Changescene3"]

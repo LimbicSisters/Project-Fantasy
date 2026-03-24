@@ -1,0 +1,12 @@
+[signal arg="lockmovement"]
+[wait time="1.0"]
+join Paul left
+Paul: We did it.
+join Ryka right
+join Narrator center
+Ryka: Yeah, it was really-
+Narrator: Paul slaps Ryka's back
+Paul: It was really... hard to kill, fun hunt.
+leave --All--
+[signal arg="allowmovement"]
+[signal arg="deletewall"]

@@ -1,0 +1,13 @@
+[signal arg="Dialog2prep"]
+Wait, please don't!
+join Fireman right [mirrored="true"]
+Fireman: You should have paid your dues, we own this country now.
+join Paul left
+Paul: WAIT! DON'T!
+join Ryka leftmost
+Ryka: PAUL, WAIT!
+Fireman: Looks like I missed some
+join Narrator center
+Narrator: The man raises a hand, ready for combat.
+leave --All--
+[signal arg="Changescene2"]
