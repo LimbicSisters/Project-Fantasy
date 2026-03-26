@@ -1,6 +1,6 @@
 [signal arg="lockmovement"]
-join Paul left
 [wait time="1.0"]
+join Paul left
 Paul: Where are we?
 join Ryka right
 Ryka: Not sure, based on the hole behind us, I'm guessing the shrine.

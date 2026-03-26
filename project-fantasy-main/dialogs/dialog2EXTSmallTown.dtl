@@ -1,4 +1,5 @@
 [signal arg="Dialog2prep"]
+[wait time="1.0"]
 Wait, please don't!
 join Fireman right [mirrored="true"]
 Fireman: You should have paid your dues, we own this country now.

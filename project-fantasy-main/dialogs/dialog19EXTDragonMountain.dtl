@@ -1,4 +1,5 @@
 [signal arg="lockmovement"]
+[wait time="1.0"]
 join Narrator center
 Narrator: The kids notice a shape flying through the sky
 join Paul left

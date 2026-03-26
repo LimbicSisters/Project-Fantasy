@@ -1,4 +1,5 @@
 join Narrator center
+[wait time="1.0"]
 Narrator: 300 years ago, an ancient evil revealed itself and threatened the planet.
 [signal arg="changimg1"]
 Narrator: The old gods revealed themselves and trapped themselves in crystals.

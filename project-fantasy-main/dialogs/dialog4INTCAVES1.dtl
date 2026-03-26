@@ -1,4 +1,5 @@
 [signal arg="lockmovement"]
+[wait time="1.0"]
 join Ryka center
 Ryka: Wait, something's wrong
 CREAK*

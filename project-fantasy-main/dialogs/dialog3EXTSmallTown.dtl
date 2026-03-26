@@ -1,4 +1,5 @@
 [signal arg="Dialog3prep"]
+[wait time="1.0"]
 join Fireman right [mirrored="true"]
 Fireman: Grow strong, give me a challenge
 leave Fireman

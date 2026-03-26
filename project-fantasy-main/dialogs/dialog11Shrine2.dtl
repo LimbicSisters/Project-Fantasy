@@ -1,4 +1,5 @@
 [signal arg="lockmovement"]
+[wait time="1.0"]
 join Narrator center
 Narrator: As they enter the room, the crystal is already cracking
 [signal arg="crystalshatter2"]

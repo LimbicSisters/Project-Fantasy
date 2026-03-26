@@ -1,4 +1,5 @@
 [signal arg="lockmovement"]
+[wait time="1.0"]
 join Paul leftmost
 Paul: Woah, what's this?
 join Ryka left

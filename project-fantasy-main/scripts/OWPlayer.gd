@@ -15,10 +15,10 @@ var activedialog = false
 var paused = false
 
 func _ready() -> void:
-	combatcooldown = 3.0
-	Dialogic.signal_event.connect(_on_dialogic_signal)
 	remove_from_group("Player")
 	add_to_group("Player")
+	combatcooldown = 3.0
+	Dialogic.signal_event.connect(_on_dialogic_signal)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("sprint"):

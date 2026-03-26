@@ -5,12 +5,13 @@ var player = null # Player node
 
 # ------ CHANGE SCENE ARGS ------
 # Change scene with arguments for location to go to
-func change_scene_arg( locationX : float, locationY : float, locationZ : float, file):
+func change_scene_arg(locationX : float, locationY : float, locationZ : float, file):
 	player = null
 	# Call deferred run changing scene
 	call_deferred("changing_scene", file)
 	# Wait for .1 seconds
-	await get_tree().create_timer(.01).timeout
+	await get_tree().process_frame
+	await get_tree().process_frame
 	# Set player to first node in player group
 	player = get_tree().get_first_node_in_group("Player")
 	# Set player position to new location
@@ -38,10 +39,16 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	if get_tree().current_scene != null:
 		var scene = get_tree().current_scene.name
+		if scene != "Combat":
+			if not is_instance_valid(player):
+				player = get_tree().get_first_node_in_group("Player")
+			if is_instance_valid(player):
+				current_loc = player.global_position
 		# If player is not null
-		if player != null and scene != "Combat":
+		if is_instance_valid(player) and scene != "Combat":
 			# Current location is set to player position
 			current_loc = player.global_position
+		if scene != "Combat":
 			match scene:
 				"Opening":
 					current_scene = "res://scenes/opening.tscn"
@@ -63,6 +70,8 @@ func _physics_process(_delta: float) -> void:
 					current_scene = "res://scenes/tower.tscn"
 				"OtherWorld":
 					current_scene = "res://scenes/other_world.tscn"
+				"Mountain":
+					current_scene = "res://scenes/mountain.tscn"
 	# Otherwise
 	else:
 		# Wait 1 second

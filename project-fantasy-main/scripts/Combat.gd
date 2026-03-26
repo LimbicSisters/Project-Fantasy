@@ -161,6 +161,9 @@ func choose_ava_types():
 			ava_types.append("GoblinChief")
 		"res://scenes/tower.tscn":
 			ava_types.append("GoblinChief")
+		"res://scenes/mountain.tscn":
+			ava_types.append("Dragon")
+			boss = true
 
 func choose_enemy_type():
 	var type2
@@ -190,22 +193,25 @@ func choose_enemy_type():
 						enemy_nodes.append(enemy_1.get_child(4))
 						enemy_1.get_child(4).visible = true
 					"GoblinWarrior":
-						enemy_nodes.append(enemy_3.get_child(5))
-						enemy_3.get_child(5).visible = true
+						enemy_nodes.append(enemy_1.get_child(5))
+						enemy_1.get_child(5).visible = true
 					"GoblinChief":
-						enemy_nodes.append(enemy_3.get_child(6))
-						enemy_3.get_child(6).visible = true
+						enemy_nodes.append(enemy_1.get_child(6))
+						enemy_1.get_child(6).visible = true
+					"Dragon":
+						enemy_nodes.append(enemy_1.get_child(7))
+						enemy_1.get_child(7).visible = true
 			2:
 				match type2:
 					"Goblin":
 						enemy_nodes.append(enemy_2.get_child(0))
 						enemy_2.get_child(0).visible = true
 					"GoblinWarrior":
-						enemy_nodes.append(enemy_3.get_child(1))
-						enemy_3.get_child(1).visible = true
+						enemy_nodes.append(enemy_2.get_child(1))
+						enemy_2.get_child(1).visible = true
 					"GoblinChief":
-						enemy_nodes.append(enemy_3.get_child(2))
-						enemy_3.get_child(2).visible = true
+						enemy_nodes.append(enemy_2.get_child(2))
+						enemy_2.get_child(2).visible = true
 			3:
 				match type3:
 					"Goblin":
@@ -290,6 +296,8 @@ func end_combat():
 				SceneMangager.change_scene_arg(98, -29, 0.0, "res://scenes/cave_1.tscn")
 			else:
 				SceneMangager.change_scene("res://scenes/game_over.tscn")
+		else:
+			SceneMangager.change_scene("res://scenes/game_over.tscn")
 	else:
 		victory = true
 		var rcurrent_text = """XP:

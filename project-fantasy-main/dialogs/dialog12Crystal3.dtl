@@ -1,4 +1,5 @@
 [signal arg="lockmovement"]
+[wait time="1.0"]
 join Narrator center
 Narrator: The moment you enter, you see the cloaked man hunched over the pillar.
 join Paul left

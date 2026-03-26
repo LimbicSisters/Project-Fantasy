@@ -1,4 +1,5 @@
 [signal arg="lockmovement"]
+[wait time="1.0"]
 join God3 right [mirrored="true"]
 God3: Who are you? Why do you have two gods' power?
 join Paul left

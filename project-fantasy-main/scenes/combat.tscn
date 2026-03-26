@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://konhpk5qma3b"]
+[gd_scene load_steps=14 format=3 uid="uid://konhpk5qma3b"]
 
 [ext_resource type="Script" uid="uid://dvnhy30dbgxij" path="res://scripts/Combat.gd" id="1_4l26h"]
 [ext_resource type="Texture2D" uid="uid://dx1b3xan22tjy" path="res://Images/arrow.png" id="1_764e3"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dkqcjmvyxjmgh" path="res://Images/god.png" id="8_sa5k0"]
 [ext_resource type="Texture2D" uid="uid://2ibkow5wuv1g" path="res://Images/goblin2.png" id="9_hrcy2"]
 [ext_resource type="Texture2D" uid="uid://clbggrhj808qh" path="res://Images/goblin3.png" id="10_gvie1"]
+[ext_resource type="Texture2D" uid="uid://cpq60kxy5ciuo" path="res://Images/dragon.png" id="11_hmy61"]
 [ext_resource type="Script" uid="uid://do1ljxud3vwqi" path="res://scripts/Player.gd" id="12_gvie1"]
 
 [node name="Combat" type="Node3D"]
@@ -246,6 +247,21 @@ maxspeed = 5.0
 speed = 5.0
 minxp = 30
 maxxp = 50
+metadata/_custom_type_script = "uid://0tfobjqljkaq"
+
+[node name="Dragon" type="Sprite2D" parent="Enemies/Enemy1"]
+visible = false
+position = Vector2(485.00006, 415.00003)
+scale = Vector2(18.3125, 18.3125)
+texture = ExtResource("11_hmy61")
+script = ExtResource("2_aic3r")
+health = 600
+mindamage = 10
+maxdamage = 30
+maxspeed = 5.0
+speed = 5.0
+minxp = 100
+maxxp = 200
 metadata/_custom_type_script = "uid://0tfobjqljkaq"
 
 [node name="Enemy2" type="Node2D" parent="Enemies"]

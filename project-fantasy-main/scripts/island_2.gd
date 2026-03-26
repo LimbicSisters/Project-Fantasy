@@ -3,11 +3,9 @@ extends Node3D
 
 func _ready() -> void:
 	Dialogic.signal_event.connect(_on_dialogic_signal)
-	if not Vardump.dialog16ran:
+	if Vardump.recent_dialog == 14:
 		Dialogic.start("dialog16EXTMountainRange")
-		Vardump.dialog16ran = true
-	if Vardump.dialog18ran:
-		static_body_3d_2.queue_free()
+		Vardump.recent_dialog = 16
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Player"):

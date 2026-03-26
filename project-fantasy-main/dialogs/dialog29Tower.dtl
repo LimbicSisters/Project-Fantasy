@@ -1,4 +1,5 @@
 [signal arg="lockmovement"]
+[wait time="1.0"]
 join Fireman right [mirrored="true"]
 Fireman: Awaken, my lord, it is I, your Icon, I call you forth, Father.
 join Paul left
